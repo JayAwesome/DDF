@@ -1,0 +1,210 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap');
+
+:root {
+  /* Core Foundation Colors */
+  --clr-blue: #003366; /* Trust, Excellence */
+  --clr-blue-light: #00509E;
+  --clr-gold: #D4AF37; /* Impact, Quality */
+  --clr-gold-light: #F3E5AB;
+  --clr-white: #FFFFFF;
+  
+  /* Semantic Variables */
+  --clr-bg-page: #FFFFFF;
+  --clr-surface: #FFFFFF;
+  --clr-heading: #003366;
+  
+  /* Neutral / Text colors */
+  --clr-text-main: #333333;
+  --clr-text-muted: #666666;
+  --clr-bg-light: #F8F9FA;
+  --clr-bg-alt: #F0F4F8;
+  
+  /* Additional Accents */
+  --clr-error: #D32F2F;
+  --clr-success: #388E3C;
+  
+  /* Shadows */
+  --shadow-sm: 0 2px 4px rgba(0,0,0,0.05);
+  --shadow-md: 0 4px 6px rgba(0,0,0,0.1);
+  --shadow-lg: 0 10px 15px rgba(0,0,0,0.1);
+  
+  /* Transitions */
+  --transition-fast: 0.2s ease-in-out;
+  --transition-normal: 0.3s ease-in-out;
+  
+  /* Typography */
+  --font-primary: 'Inter', sans-serif;
+  --font-heading: 'Playfair Display', serif;
+}
+
+[data-theme='dark'] {
+  --clr-bg-page: #0f172a;
+  --clr-surface: #1e293b;
+  --clr-bg-light: #0f172a;
+  --clr-bg-alt: #334155;
+  
+  --clr-heading: #60a5fa; /* Reverting to bright blue for heading/accents */
+  --clr-text-main: #f8fafc;
+  --clr-text-muted: #cbd5e1;
+  
+  --clr-gold: #fde047;
+  
+  /* Maintain white actually as white for contrast on elements */
+  --clr-white: #FFFFFF;
+  
+  --shadow-sm: 0 2px 4px rgba(0,0,0,0.5);
+  --shadow-md: 0 4px 6px rgba(0,0,0,0.6);
+  --shadow-lg: 0 10px 15px rgba(0,0,0,0.8);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: var(--font-primary);
+  color: var(--clr-text-main);
+  background-color: var(--clr-bg-page);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-heading);
+  color: var(--clr-heading);
+  line-height: 1.2;
+  margin-bottom: 1rem;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+  transition: color var(--transition-fast);
+}
+
+ul, ol {
+  list-style: none;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+button {
+  cursor: pointer;
+  border: none;
+  background: none;
+  font-family: inherit;
+}
+
+/* Base Utility Classes */
+.container {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+}
+
+.section {
+  padding: 5rem 0;
+}
+
+.section-bg-light {
+  background-color: var(--clr-bg-light);
+}
+
+.section-bg-blue {
+  background-color: var(--clr-blue);
+  color: var(--clr-white);
+}
+
+.section-bg-blue h1,
+.section-bg-blue h2,
+.section-bg-blue h3,
+.section-bg-blue h4 {
+  color: var(--clr-white);
+}
+
+.btn {
+  display: inline-block;
+  padding: 0.75rem 1.5rem;
+  border-radius: 4px;
+  font-weight: 600;
+  text-align: center;
+  transition: all var(--transition-fast);
+}
+
+.btn-primary {
+  background-color: var(--clr-blue);
+  color: var(--clr-white);
+}
+
+.btn-primary:hover {
+  background-color: var(--clr-blue-light);
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-md);
+}
+
+.btn-gold {
+  background-color: var(--clr-gold);
+  color: #003366;
+}
+
+.btn-gold:hover {
+  background-color: #c59b27;
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-md);
+}
+
+.btn-outline {
+  border: 2px solid var(--clr-heading);
+  color: var(--clr-heading);
+}
+
+.btn-outline:hover {
+  background-color: var(--clr-heading);
+  color: var(--clr-bg-page);
+}
+
+.text-center { text-align: center; }
+.text-gold { color: var(--clr-gold); }
+.mb-1 { margin-bottom: 0.5rem; }
+.mb-2 { margin-bottom: 1rem; }
+.mb-3 { margin-bottom: 1.5rem; }
+.mb-4 { margin-bottom: 2rem; }
+.mb-5 { margin-bottom: 3rem; }
+
+/* Flex/Grid Utilities */
+.flex { display: flex; }
+.flex-col { flex-direction: column; }
+.items-center { align-items: center; }
+.justify-center { justify-content: center; }
+.justify-between { justify-content: space-between; }
+.gap-1 { gap: 0.5rem; }
+.gap-2 { gap: 1rem; }
+.gap-3 { gap: 1.5rem; }
+.gap-4 { gap: 2rem; }
+
+/* Micro-animations */
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes slideUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.animate-fade-in {
+  animation: fadeIn 0.6s ease-out forwards;
+}
+
+.animate-slide-up {
+  animation: slideUp 0.6s ease-out forwards;
+}
