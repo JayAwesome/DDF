@@ -4,11 +4,13 @@ import { motion } from 'framer-motion';
 const Leadership = () => {
   return (
     <div className="leadership-page animate-fade-in">
-      <div className="section-bg-blue" style={{ padding: '6rem 0', textAlign: 'center' }}>
+      {/* Page Header */}
+      <div className="section-bg-blue" style={{ padding: '8rem 0', textAlign: 'center' }}>
         <div className="container">
-          <h1 style={{ fontSize: '3rem', marginBottom: '1rem' }}>Organizational Structure</h1>
-          <p style={{ fontSize: '1.25rem', color: '#d1e0ff', maxWidth: '600px', margin: '0 auto' }}>
-            Meet the dedicated individuals driving the vision and operations of the Dumelo Development Foundation.
+          <span style={{ color: 'var(--clr-gold)', textTransform: 'uppercase', letterSpacing: '2px', fontWeight: 700, fontSize: '0.9rem' }}>Institutional Governance</span>
+          <h1 style={{ fontSize: '3.5rem', marginBottom: '1.5rem', marginTop: '1rem' }}>Leadership & Trust</h1>
+          <p style={{ fontSize: '1.25rem', color: '#d1e0ff', maxWidth: '750px', margin: '0 auto', lineHeight: 1.6 }}>
+            Our organization is constitutionally governed and led by a dedicated Board of Trustees committed to transparency and humanitarian excellence.
           </p>
         </div>
       </div>
@@ -74,33 +76,71 @@ const Leadership = () => {
             </div>
           </div>
 
-          <h2 className="text-center mb-5">Foundation Architecture</h2>
+          {/* Board of Trustees Section */}
+          <div style={{ marginBottom: '5rem' }}>
+            <div className="text-center mb-5">
+              <h2 style={{ fontSize: '2.5rem' }}>Board of Trustees</h2>
+              <p style={{ color: 'var(--clr-text-muted)', fontSize: '1.1rem' }}>The governing body ensuring the foundation's strategic direction and compliance.</p>
+            </div>
+            <div style={{ 
+              display: 'grid', 
+              gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', 
+              gap: '2rem' 
+            }}>
+              {[
+                { name: 'Amb. Dr. Loretta Emetam Enwezor', role: 'President & Founder' },
+                { name: 'Lord Amb. Adebayo Ola Oso', role: 'Vice President' },
+                { name: 'Engr. Chukwunonso Chiejina Obi', role: 'Secretary' },
+                { name: 'Mrs Chinwe Vivian Ichoku', role: 'Treasurer' },
+                { name: 'Mrs Theresa Nwagboliwe Obi', role: 'Matron / Welfare' }
+              ].map((member, i) => (
+                <motion.div 
+                  key={i}
+                  whileHover={{ y: -5 }}
+                  style={{ 
+                    background: 'var(--clr-surface)', 
+                    padding: '2rem', 
+                    borderRadius: '16px', 
+                    boxShadow: 'var(--shadow-md)',
+                    borderLeft: '4px solid var(--clr-gold)',
+                    display: 'flex',
+                    flexDirection: 'column',
+                    justifyContent: 'center'
+                  }}
+                >
+                  <h4 style={{ fontSize: '1.25rem', marginBottom: '0.5rem', color: 'var(--clr-blue)' }}>{member.name}</h4>
+                  <p style={{ color: 'var(--clr-gold)', fontWeight: 700, fontSize: '0.9rem', textTransform: 'uppercase', letterSpacing: '1px' }}>{member.role}</p>
+                </motion.div>
+              ))}
+            </div>
+          </div>
+
+          <h2 className="text-center mb-8">Foundation Architecture</h2>
           <div style={{ 
             display: 'grid', 
             gridTemplateColumns: 'repeat(auto-fit, minmax(220px, 1fr))', 
             gap: '2rem',
-            textAlign: 'center' 
+            textAlign: 'center',
+            marginBottom: '4rem'
           }}>
             {[
-              { title: 'Board of Trustees', icon: '🏛️' },
-              { title: 'Executives', icon: '💼' },
+              { title: 'National Executive Council', icon: '🏛️' },
               { title: 'State Coordinators', icon: '📍' },
+              { title: 'Special Committees', icon: '💼' },
               { title: 'Global Members', icon: '🌍' },
             ].map((exec, idx) => (
-              <motion.div 
+              <div 
                 key={idx}
-                whileHover={{ y: -5 }}
                 style={{ 
-                  background: 'var(--clr-surface)', 
-                  borderRadius: '8px', 
-                  padding: '2.5rem',
-                  boxShadow: 'var(--shadow-md)',
-                  borderTop: '3px solid var(--clr-gold)'
+                  background: 'var(--clr-bg-light)', 
+                  borderRadius: '12px', 
+                  padding: '2rem',
+                  border: '1px solid #eee'
                 }}
               >
-                <div style={{ fontSize: '3rem', marginBottom: '1rem' }}>{exec.icon}</div>
-                <h4 style={{ fontSize: '1.25rem', color: 'var(--clr-heading)' }}>{exec.title}</h4>
-              </motion.div>
+                <div style={{ fontSize: '2.5rem', marginBottom: '1rem' }}>{exec.icon}</div>
+                <h4 style={{ fontSize: '1.1rem', color: 'var(--clr-heading)', fontWeight: 600 }}>{exec.title}</h4>
+              </div>
             ))}
           </div>
 

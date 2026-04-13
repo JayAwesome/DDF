@@ -1,47 +1,70 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
+import { FiMaximize2, FiX } from 'react-icons/fi';
 
 const Gallery = () => {
   const [selectedImage, setSelectedImage] = useState(null);
 
   const images = Array.from({ length: 21 }, (_, i) => ({
     src: `/assets/humanitarian-support-${i + 1}.jpeg`,
-    cap: `Humanitarian Support ${i + 1}`
+    cap: `Dumelo Impact Event #${i + 1}`
   }));
 
   return (
-    <div className="gallery-page animate-fade-in" style={{ paddingBottom: '5rem' }}>
-      <div className="section-bg-blue" style={{ padding: '6rem 0', textAlign: 'center' }}>
+    <div className="gallery-page animate-fade-in">
+      {/* Page Header */}
+      <div className="section-bg-blue" style={{ padding: '8rem 0', textAlign: 'center' }}>
         <div className="container">
-          <h1 style={{ fontSize: '3rem', marginBottom: '1rem' }}>Media Gallery</h1>
-          <p style={{ fontSize: '1.25rem', color: '#d1e0ff', maxWidth: '600px', margin: '0 auto' }}>
-            A glimpse into our outreach events and the lives we've touched along the way.
+          <span style={{ color: 'var(--clr-gold)', textTransform: 'uppercase', letterSpacing: '2px', fontWeight: 700, fontSize: '0.9rem' }}>Visual Journey</span>
+          <h1 style={{ fontSize: '3.5rem', marginBottom: '1.5rem', marginTop: '1rem' }}>Media Gallery</h1>
+          <p style={{ fontSize: '1.25rem', color: '#d1e0ff', maxWidth: '750px', margin: '0 auto', lineHeight: 1.6 }}>
+            A glimpse into our outreach initiatives, community events, and the lives transformed through our global missions.
           </p>
         </div>
       </div>
 
-      <div className="container mt-5" style={{ marginTop: '4rem' }}>
-        <div style={{
-          display: 'grid',
-          gridTemplateColumns: 'repeat(auto-fill, minmax(250px, 1fr))',
-          gap: '1.5rem'
-        }}>
-          {images.map((img, idx) => (
-            <motion.div 
-              key={idx}
-              whileHover={{ scale: 1.03 }}
-              style={{ 
-                cursor: 'pointer', 
-                borderRadius: '8px', 
-                overflow: 'hidden', 
-                boxShadow: 'var(--shadow-sm)',
-                aspectRatio: '1'
-              }}
-              onClick={() => setSelectedImage(img)}
-            >
-              <img src={img.src} alt={img.cap} style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
-            </motion.div>
-          ))}
+      <div className="section">
+        <div className="container">
+          <div style={{
+            display: 'grid',
+            gridTemplateColumns: 'repeat(auto-fill, minmax(300px, 1fr))',
+            gap: '2rem'
+          }}>
+            {images.map((img, idx) => (
+              <motion.div 
+                key={idx}
+                layoutId={`img-${idx}`}
+                whileHover={{ y: -10 }}
+                style={{ 
+                  cursor: 'pointer', 
+                  borderRadius: '20px', 
+                  overflow: 'hidden', 
+                  boxShadow: 'var(--shadow-md)',
+                  aspectRatio: '4/5',
+                  position: 'relative',
+                  background: 'var(--clr-bg-light)',
+                  border: '1px solid rgba(0,0,0,0.05)'
+                }}
+                onClick={() => setSelectedImage(img)}
+              >
+                <img src={img.src} alt={img.cap} style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
+                <div style={{ 
+                  position: 'absolute', 
+                  bottom: 0, left: 0, right: 0, 
+                  background: 'linear-gradient(transparent, rgba(0,0,0,0.7))', 
+                  padding: '2rem 1.5rem',
+                  opacity: 0,
+                  transition: 'opacity 0.3s ease',
+                  display: 'flex',
+                  alignItems: 'flex-end',
+                  justifyContent: 'space-between'
+                }} className="gallery-overlay">
+                  <span style={{ color: 'white', fontWeight: 600, fontSize: '0.9rem' }}>{img.cap}</span>
+                  <FiMaximize2 style={{ color: 'var(--clr-gold)', fontSize: '1.25rem' }} />
+                </div>
+              </motion.div>
+            ))}
+          </div>
         </div>
       </div>
 
@@ -55,30 +78,48 @@ const Gallery = () => {
             onClick={() => setSelectedImage(null)}
             style={{
               position: 'fixed', top: 0, left: 0, right: 0, bottom: 0,
-              backgroundColor: 'rgba(0,0,0,0.9)', zIndex: 1000,
+              backgroundColor: 'rgba(2, 6, 23, 0.95)', zIndex: 2000,
               display: 'flex', alignItems: 'center', justifyContent: 'center',
-              padding: '2rem', flexDirection: 'column'
+              padding: '2rem', backdropFilter: 'blur(8px)'
             }}
           >
-            <motion.img 
-              initial={{ scale: 0.9 }}
-              animate={{ scale: 1 }}
-              exit={{ scale: 0.9 }}
-              src={selectedImage.src} 
-              alt={selectedImage.cap}
-              style={{ maxWidth: '100%', maxHeight: '80vh', objectFit: 'contain', borderRadius: '4px' }} 
+            <motion.div 
+              initial={{ scale: 0.9, opacity: 0 }}
+              animate={{ scale: 1, opacity: 1 }}
+              exit={{ scale: 0.9, opacity: 0 }}
+              style={{ position: 'relative', maxWidth: '100%', maxHeight: '90vh' }}
               onClick={(e) => e.stopPropagation()}
-            />
-            <p style={{ color: 'white', marginTop: '1rem', fontSize: '1.25rem' }}>{selectedImage.cap}</p>
-            <button 
-              onClick={() => setSelectedImage(null)}
-              style={{ position: 'absolute', top: '2rem', right: '2rem', color: 'white', fontSize: '2rem' }}
             >
-              &times;
-            </button>
+              <img 
+                src={selectedImage.src} 
+                alt={selectedImage.cap}
+                style={{ maxWidth: '100%', maxHeight: '80vh', objectFit: 'contain', borderRadius: '16px', boxShadow: '0 25px 50px -12px rgba(0,0,0,0.5)' }} 
+              />
+              <div style={{ marginTop: '1.5rem', textAlign: 'center' }}>
+                <p style={{ color: 'white', fontSize: '1.25rem', fontWeight: 600 }}>{selectedImage.cap}</p>
+              </div>
+              <button 
+                onClick={() => setSelectedImage(null)}
+                style={{ 
+                  position: 'absolute', top: '-60px', right: '0', 
+                  color: 'white', background: 'rgba(255,255,255,0.1)', 
+                  border: 'none', borderRadius: '50%', width: '45px', height: '45px',
+                  display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: '1.5rem',
+                  cursor: 'pointer'
+                }}
+              >
+                <FiX />
+              </button>
+            </motion.div>
           </motion.div>
         )}
       </AnimatePresence>
+
+      <style>{`
+        .gallery-page div:hover .gallery-overlay {
+          opacity: 1 !important;
+        }
+      `}</style>
     </div>
   );
 };

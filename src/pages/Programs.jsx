@@ -1,49 +1,51 @@
 import React from 'react';
 import { motion } from 'framer-motion';
+import { FiArrowRight, FiCheckCircle } from 'react-icons/fi';
 
 const Programs = () => {
   const programs = [
     {
       title: 'Empowerment Programs',
       list: [
-        'Skills acquisition',
-        'Entrepreneurial training',
-        'Financial support initiatives',
+        'Advanced skills acquisition and vocational training',
+        'Strategic entrepreneurial development workshops',
+        'Sustainable micro-finance and start-up initiatives',
       ],
       img: '/assets/humanitarian-support-4.jpeg'
     },
     {
       title: 'Humanitarian Services',
       list: [
-        'Support for widows and vulnerable women',
-        'Assistance for abandoned families',
-        'Aid for rural communities',
+        'Dedicated support for widows and vulnerable women',
+        'Holistic assistance for abandoned families',
+        'Targeted aid and relief for rural communities',
       ],
       img: '/assets/humanitarian-support-5.jpeg'
     },
     {
       title: 'Education Support',
       list: [
-        'Scholarships and sponsorships',
-        'Provision of learning materials',
+        'Tertiary education scholarships and sponsorships',
+        'Provision of modern learning materials and tools',
+        'Educational infrastructure development projects',
       ],
       img: '/assets/humanitarian-support-6.jpeg'
     },
     {
-      title: 'Healthcare Support',
+      title: 'Healthcare Interventions',
       list: [
-        'Payment of medical bills',
-        'Hospital visits and interventions',
-        'Support for critical cases',
+        'Strategic payment of critical medical bills',
+        'Structured hospital visits and community healthcare',
+        'High-impact medical support for emergency cases',
       ],
       img: '/assets/humanitarian-support-7.jpeg'
     },
     {
       title: 'Community Development',
       list: [
-        'Job creation initiatives',
-        'Industrial and agricultural development',
-        'Rural outreach programs',
+        'State-level job creation and workforce initiatives',
+        'Sustainable industrial and agricultural modeling',
+        'Comprehensive rural outreach and social works',
       ],
       img: '/assets/humanitarian-support-8.jpeg'
     }
@@ -51,46 +53,70 @@ const Programs = () => {
 
   return (
     <div className="programs-page animate-fade-in">
-      <div className="section-bg-blue" style={{ padding: '6rem 0', textAlign: 'center' }}>
+      {/* Page Header */}
+      <div className="section-bg-blue" style={{ padding: '8rem 0', textAlign: 'center' }}>
         <div className="container">
-          <h1 style={{ fontSize: '3rem', marginBottom: '1rem' }}>Key Program Areas</h1>
-          <p style={{ fontSize: '1.25rem', color: '#d1e0ff', maxWidth: '600px', margin: '0 auto' }}>
-            Explore the core pillars where we channel our resources to effect meaningful and sustainable change.
+          <span style={{ color: 'var(--clr-gold)', textTransform: 'uppercase', letterSpacing: '2px', fontWeight: 700, fontSize: '0.9rem' }}>Our Initiatives</span>
+          <h1 style={{ fontSize: '3.5rem', marginBottom: '1.5rem', marginTop: '1rem' }}>Key Program Areas</h1>
+          <p style={{ fontSize: '1.25rem', color: '#d1e0ff', maxWidth: '750px', margin: '0 auto', lineHeight: 1.6 }}>
+            Explore the core strategic pillars where we channel our resources to effect meaningful, structured, and sustainable global change.
           </p>
         </div>
       </div>
 
       <section className="section">
-        <div className="container" style={{ maxWidth: '1000px' }}>
-          <div style={{ display: 'flex', flexDirection: 'column', gap: '4rem' }}>
+        <div className="container" style={{ maxWidth: '1100px' }}>
+          <div style={{ display: 'flex', flexDirection: 'column', gap: '8rem' }}>
             {programs.map((prog, idx) => (
               <motion.div 
                 key={idx}
-                initial={{ opacity: 0, y: 30 }}
+                initial={{ opacity: 0, y: 40 }}
                 whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.5 }}
-                viewport={{ once: true, margin: '-50px' }}
+                transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
+                viewport={{ once: true, margin: '-100px' }}
                 style={{ 
                   display: 'flex', 
                   flexDirection: idx % 2 === 0 ? 'row' : 'row-reverse',
-                  gap: '3rem',
+                  gap: '5rem',
                   alignItems: 'center',
                   flexWrap: 'wrap'
                 }}
               >
-                <div style={{ flex: '1 1 400px', borderRadius: '12px', overflow: 'hidden', boxShadow: 'var(--shadow-md)' }}>
-                  <img src={prog.img} alt={prog.title} style={{ width: '100%', height: '350px', objectFit: 'cover' }} />
+                <div style={{ flex: '1 1 450px', position: 'relative' }}>
+                  <div style={{ borderRadius: '24px', overflow: 'hidden', boxShadow: 'var(--shadow-lg)' }}>
+                    <img src={prog.img} alt={prog.title} style={{ width: '100%', height: '450px', objectFit: 'cover' }} />
+                  </div>
+                  <div style={{ 
+                    position: 'absolute', 
+                    bottom: '-25px', 
+                    [idx % 2 === 0 ? 'right' : 'left']: '-25px',
+                    background: 'var(--clr-gold)',
+                    color: 'white',
+                    padding: '1.5rem 2rem',
+                    borderRadius: '16px',
+                    fontWeight: 800,
+                    boxShadow: 'var(--shadow-md)'
+                  }}>
+                    0{idx + 1}
+                  </div>
                 </div>
-                <div style={{ flex: '1 1 400px' }}>
-                  <div style={{ padding: '0.5rem 1rem', display: 'inline-block', background: 'var(--clr-gold-light)', color: 'var(--clr-heading)', borderRadius: '20px', fontWeight: 'bold', marginBottom: '1rem' }}>Program Component {idx + 1}</div>
-                  <h2 style={{ fontSize: '2rem', color: 'var(--clr-heading)', marginBottom: '1.5rem' }}>{prog.title}</h2>
+                <div style={{ flex: '1 1 450px' }}>
+                  <h2 style={{ fontSize: '2.5rem', color: 'var(--clr-heading)', marginBottom: '2rem' }}>{prog.title}</h2>
                   
-                  <ul style={{ paddingLeft: '1.5rem', listStyleType: 'disc', color: 'var(--clr-text-main)', fontSize: '1.1rem', display: 'flex', flexDirection: 'column', gap: '0.75rem' }}>
+                  <ul style={{ padding: 0, display: 'flex', flexDirection: 'column', gap: '1.25rem' }}>
                     {prog.list.map((item, idxx) => (
-                      <li key={idxx}>{item}</li>
+                      <li key={idxx} style={{ display: 'flex', alignItems: 'flex-start', gap: '1rem', color: 'var(--clr-text-main)', fontSize: '1.1rem' }}>
+                        <FiCheckCircle style={{ color: 'var(--clr-gold)', fontSize: '1.5rem', flexShrink: 0, marginTop: '0.2rem' }} />
+                        <span>{item}</span>
+                      </li>
                     ))}
                   </ul>
-
+                  
+                  <div style={{ marginTop: '2.5rem' }}>
+                    <button className="btn btn-outline" style={{ display: 'flex', alignItems: 'center', gap: '0.75rem' }}>
+                      Partner on this Program <FiArrowRight />
+                    </button>
+                  </div>
                 </div>
               </motion.div>
             ))}
@@ -100,26 +126,42 @@ const Programs = () => {
       
       {/* Membership Benefits Integration */}
       <section className="section section-bg-light">
-          <div className="container" style={{ textAlign: 'center', maxWidth: '800px' }}>
-             <h2 className="mb-4">Membership & Benefits</h2>
-             <p className="mb-4 text-muted">Join our growing ecosystem to unlock a myriad of opportunities designed for your growth.</p>
-             <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(250px, 1fr))', gap: '1.5rem', textAlign: 'left' }}>
+          <div className="container">
+            <div className="text-center mb-5">
+              <span style={{ color: 'var(--clr-blue)', fontWeight: 800, fontSize: '0.9rem', textTransform: 'uppercase', letterSpacing: '2px' }}>Ecosystem Engagement</span>
+              <h2 style={{ fontSize: '3rem', marginTop: '1rem' }}>Membership & Benefits</h2>
+              <p style={{ color: 'var(--clr-text-muted)', fontSize: '1.15rem', maxWidth: '700px', margin: '1.5rem auto' }}>
+                Join our growing ecosystem to unlock a myriad of opportunities designed for institutional and individual growth.
+              </p>
+            </div>
+            
+            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: '2rem' }}>
                 {[
-                  'Access to cooperative loans',
-                  'Skills acquisition and training',
-                  'Agricultural and business support',
-                  'Financial aid and grants',
-                  'Participation in empowerment schemes',
-                  'Access to housing and consultancy services'
-                ].map(benefit => (
-                  <div key={benefit} style={{ background: 'var(--clr-surface)', padding: '1.5rem', borderRadius: '8px', boxShadow: 'var(--shadow-sm)', borderLeft: '4px solid var(--clr-gold)' }}>
-                      <strong>{benefit}</strong>
-                  </div>
+                  { title: 'Cooperative Access', desc: 'Secure access to cooperative loans and financial scaling opportunities.' },
+                  { title: 'Skills Development', desc: 'Premium vocational training and modern skills acquisition schemes.' },
+                  { title: 'Enterprise Support', desc: 'Targeted support for industrial, agricultural, and business ventures.' },
+                  { title: 'Direct Aid', desc: 'Prioritized access to financial relief, medical support, and grants.' },
+                  { title: 'Empowerment Schemes', desc: 'Participation in national-scale social welfare and development projects.' },
+                  { title: 'Consultancy Pool', desc: 'Expert consultancy in housing, investment, and strategic growth.' }
+                ].map((benefit, i) => (
+                  <motion.div 
+                    key={i} 
+                    whileHover={{ y: -5 }}
+                    style={{ 
+                      background: 'var(--clr-surface)', 
+                      padding: '2.5rem', 
+                      borderRadius: '20px', 
+                      boxShadow: 'var(--shadow-md)', 
+                      border: '1px solid rgba(0,0,0,0.05)'
+                    }}
+                  >
+                    <h4 style={{ color: 'var(--clr-blue)', marginBottom: '1rem', fontSize: '1.25rem' }}>{benefit.title}</h4>
+                    <p style={{ color: 'var(--clr-text-muted)', margin: 0, lineHeight: 1.6 }}>{benefit.desc}</p>
+                  </motion.div>
                 ))}
              </div>
           </div>
       </section>
-
     </div>
   );
 };

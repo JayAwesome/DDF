@@ -6,11 +6,12 @@ const About = () => {
   return (
     <div className="about-page animate-fade-in">
       {/* Page Header */}
-      <div className="section-bg-blue" style={{ padding: '6rem 0', textAlign: 'center' }}>
+      <div className="section-bg-blue" style={{ padding: '8rem 0', textAlign: 'center' }}>
         <div className="container">
-          <h1 style={{ fontSize: '3rem', marginBottom: '1rem' }}>About Us</h1>
-          <p style={{ fontSize: '1.25rem', color: '#d1e0ff', maxWidth: '600px', margin: '0 auto' }}>
-            Dumelo… Greater Heights for Our Tomorrow
+          <span style={{ color: 'var(--clr-gold)', textTransform: 'uppercase', letterSpacing: '2px', fontWeight: 700, fontSize: '0.9rem' }}>Who We Are</span>
+          <h1 style={{ fontSize: '3.5rem', marginBottom: '1.5rem', marginTop: '1rem' }}>About Us</h1>
+          <p style={{ fontSize: '1.25rem', color: '#d1e0ff', maxWidth: '750px', margin: '0 auto', lineHeight: 1.6 }}>
+            Dumelo Development Foundation is a structured, global-standard organization dedicated to transformational humanitarian excellence and sustainable development.
           </p>
         </div>
       </div>
@@ -48,26 +49,89 @@ const About = () => {
 
       {/* The Story / About */}
       <section className="section">
-        <div className="container" style={{ maxWidth: '800px', margin: '0 auto', textAlign: 'center' }}>
-          <h2 className="mb-4">Who We Are</h2>
-          <div style={{ color: 'var(--clr-text-main)', fontSize: '1.1rem', lineHeight: 1.8 }}>
-            <p className="mb-3">
-              Dumelo Development Foundation is a global facing Organization with the goal to map out pathways to international standard for Government, Businesses, and Global connectivity through workforce development, marketing and brand durability, while illuminating areas of humanitarian services, charitable services, empowerments for youths, widows, widowers, retirees, & single parents, for benefiting and as well performing at optimal capacity and capability.
+        <div className="container" style={{ maxWidth: '850px', margin: '0 auto', textAlign: 'center' }}>
+          <h2 className="mb-4">Our Professional Identity</h2>
+          <div style={{ color: 'var(--clr-text-main)', fontSize: '1.15rem', lineHeight: 1.8 }}>
+            <p className="mb-4">
+              Dumelo Development Foundation is a global-facing organization committed to establishing international benchmarks for governments and private sectors. We specialize in mapping out strategic pathways for growth through workforce development, brand sustainability, and global connectivity.
             </p>
-            <p className="mb-3">
-              The thematic priorities of Dumelo Development Foundation are on humanitarian services, care giving services, community driven development projects, social works, charity and empowerment programmes for women, men, youths, and the aged. The Foundation was initiated from the passion of solving the basic challenges facing humanity.
+            <p className="mb-4">
+              Simultaneously, we lead high-impact humanitarian initiatives, charitable services, and targeted empowerment programs. Our focus extends to youths, widows, retirees, and single parents, ensuring they perform at their optimal capacity and capability in a modern economy.
             </p>
-            <p className="mb-3">
-              Her inter-personal relationship management, and her quest to be more impactful in the area of contributory financial control management & services to humanity birthed Dumelo Development Foundation.
+            <p className="mb-4">
+              Born from a passion for solving human challenges and a commitment to professional excellence, Dumelo was founded to bridge the gap between humanitarian aid and sustainable, structured development.
             </p>
-            <p style={{ fontStyle: 'italic', color: 'var(--clr-heading)', fontWeight: 500 }}>
-              We believe true impact comes from not just giving, but empowering individuals to become self-sufficient and productive members of society.
-            </p>
+            <div style={{ padding: '2rem', background: 'var(--clr-bg-light)', borderRadius: '16px', borderLeft: '5px solid var(--clr-gold)', textAlign: 'left', marginTop: '2rem' }}>
+              <p style={{ fontStyle: 'italic', color: 'var(--clr-blue)', fontWeight: 600, margin: 0 }}>
+                "We believe true impact is achieved when individuals are not just supported, but empowered to become self-sufficient, productive pillars of society."
+              </p>
+            </div>
           </div>
         </div>
       </section>
 
-      {/* What DUMELO Means */}
+      {/* Legal Status & Compliance */}
+      <section className="section" style={{ background: 'var(--clr-bg-alt)' }}>
+        <div className="container">
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(350px, 1fr))', gap: '4rem', alignItems: 'center' }}>
+            <div>
+              <h2 className="mb-4">Legal Status & Compliance</h2>
+              <p style={{ fontSize: '1.1rem', lineHeight: 1.8, marginBottom: '1.5rem', color: 'var(--clr-text-main)' }}>
+                Dumelo Development Foundation is a duly registered non-governmental organization under **Part C of the Companies and Allied Matters Act (CAMA), 2004**.
+              </p>
+              <p style={{ fontSize: '1.1rem', lineHeight: 1.8, marginBottom: '1.5rem', color: 'var(--clr-text-main)' }}>
+                The organization is also registered with the **Special Control Unit Against Money Laundering (SCUML)** under the Economic and Financial Crimes Commission (EFCC), and profiled with the **Department of State Services (DSS), Abuja**.
+              </p>
+              <div style={{ display: 'flex', flexWrap: 'wrap', gap: '1rem' }}>
+                {['CAMA 2004', 'SCUML Certified', 'DSS Profiled'].map(tag => (
+                   <span key={tag} style={{ background: 'var(--clr-blue)', color: 'white', padding: '0.5rem 1rem', borderRadius: '4px', fontSize: '0.9rem', fontWeight: 600 }}>{tag}</span>
+                ))}
+              </div>
+            </div>
+            <div style={{ background: 'var(--clr-surface)', padding: '3rem', borderRadius: '16px', boxShadow: 'var(--shadow-lg)' }}>
+              <h3 className="mb-4" style={{ fontSize: '1.5rem' }}>Organizational Classification</h3>
+              <ul style={{ display: 'flex', flexDirection: 'column', gap: '1.25rem' }}>
+                {[
+                  { title: 'Non-profit Organization', icon: '💎' },
+                  { title: 'Non-political Organization', icon: '⚖️' },
+                  { title: 'Constitutionally Governed Body', icon: '📜' },
+                  { title: 'Board of Trustees Leadership', icon: '👥' }
+                ].map((item, i) => (
+                  <li key={i} style={{ display: 'flex', alignItems: 'center', gap: '1rem', fontSize: '1.1rem', fontWeight: 500 }}>
+                    <span style={{ fontSize: '1.5rem' }}>{item.icon}</span>
+                    {item.title}
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Institutional Recognition */}
+      <section className="section">
+        <div className="container">
+          <div className="text-center mb-5">
+            <h2 style={{ fontSize: '2.5rem' }}>Institutional Recognition</h2>
+            <p style={{ color: 'var(--clr-text-muted)', fontSize: '1.1rem', maxWidth: '700px', margin: '0 auto' }}>
+              We maintain active engagement and institutional recognition with key government bodies to ensure transparency and wide-reaching impact.
+            </p>
+          </div>
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: '2rem' }}>
+             {[
+               { title: 'Ministry of Humanitarian Affairs', subtitle: 'Disaster Management and Social Development' },
+               { title: 'Ministry of Women Affairs', subtitle: 'Federal Republic of Nigeria' },
+               { title: 'Nigeria PoliceForce', subtitle: 'Community & Security Collaboration' }
+             ].map((gov, i) => (
+               <div key={i} style={{ padding: '2.5rem', border: '1px solid #eee', borderRadius: '12px', textAlign: 'center', transition: 'all 0.3s ease' }}>
+                  <div style={{ width: '60px', height: '60px', background: 'var(--clr-bg-light)', borderRadius: '50%', margin: '0 auto 1.5rem', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: '1.5rem' }}>🏛️</div>
+                  <h4 style={{ color: 'var(--clr-blue)', marginBottom: '0.5rem' }}>{gov.title}</h4>
+                  <p style={{ fontSize: '0.9rem', color: 'var(--clr-text-muted)' }}>{gov.subtitle}</p>
+               </div>
+             ))}
+          </div>
+        </div>
+      </section>
       <section className="section section-bg-blue">
         <div className="container">
           <h2 className="text-center mb-5" style={{ color: 'white' }}>The Essence of D.U.M.E.L.O</h2>

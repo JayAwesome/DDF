@@ -1,14 +1,24 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { FiMenu, FiX, FiMoon, FiSun } from 'react-icons/fi';
 import { useAuth } from '../context/AuthContext';
 import { useTheme } from '../context/ThemeContext';
+import { motion, AnimatePresence } from 'framer-motion';
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
   const location = useLocation();
   const { logout, isAuthenticated } = useAuth();
   const { isDark, toggleTheme } = useTheme();
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setScrolled(window.scrollY > 20);
+    };
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
 
   const toggleMenu = () => setIsOpen(!isOpen);
 
@@ -23,31 +33,40 @@ const Navbar = () => {
   ];
 
   return (
-    <nav className="navbar">
+    <nav className={`navbar glass ${scrolled ? 'scrolled' : ''}`}>
       <div className="container nav-container">
         <Link to="/" className="nav-logo">
           <h1>Dumelo <span>Foundation</span></h1>
         </Link>
         
-        <div className={`nav-links ${isOpen ? 'active' : ''}`}>
+        <div className="nav-desktop">
           {navLinks.map((link) => (
             <Link 
               key={link.path} 
               to={link.path}
               className={`nav-link ${location.pathname === link.path ? 'active' : ''}`}
-              onClick={() => setIsOpen(false)}
             >
               {link.label}
+              {location.pathname === link.path && (
+                <motion.div layoutId="nav-underline" className="nav-underline" />
+              )}
             </Link>
           ))}
-          <button onClick={toggleTheme} style={{ background: 'transparent', border: 'none', color: 'var(--clr-text-main)', fontSize: '1.25rem', cursor: 'pointer', padding: '0.4rem', display: 'flex', alignItems: 'center' }}>
-            {isDark ? <FiSun color="var(--clr-gold)" /> : <FiMoon />}
-          </button>
-          {isAuthenticated && (
-            <button onClick={logout} className="btn btn-outline" style={{ padding: '0.4rem 1rem', fontSize: '0.875rem' }}>
-              Logout
+          
+          <div className="nav-actions">
+            <button 
+              onClick={toggleTheme} 
+              className="theme-toggle"
+              aria-label="Toggle Theme"
+            >
+              {isDark ? <FiSun /> : <FiMoon />}
             </button>
-          )}
+            {isAuthenticated && (
+              <button onClick={logout} className="btn-logout">
+                Logout
+              </button>
+            )}
+          </div>
         </div>
 
         <button className="mobile-menu-btn" onClick={toggleMenu}>
@@ -55,26 +74,37 @@ const Navbar = () => {
         </button>
       </div>
 
-      {isOpen && (
-        <div style={{ backgroundColor: 'var(--clr-surface)', padding: '1rem', borderTop: '1px solid #eee' }}>
-           {navLinks.map((link) => (
-            <Link 
-              key={link.path} 
-              to={link.path}
-              style={{ display: 'block', padding: '0.5rem 0', color: location.pathname === link.path ? 'var(--clr-gold)' : 'var(--clr-text-main)' }}
-              onClick={() => setIsOpen(false)}
-            >
-              {link.label}
-            </Link>
-          ))}
-          <button onClick={toggleTheme} style={{ width: '100%', padding: '0.5rem 0', background: 'transparent', border: 'none', color: 'var(--clr-text-main)', textAlign: 'left', display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
-            {isDark ? <FiSun color="var(--clr-gold)" /> : <FiMoon />} Theme
-          </button>
-          {isAuthenticated && (
-            <button onClick={logout} className="btn btn-outline" style={{ marginTop: '1rem', width: '100%' }}>Logout</button>
-          )}
-        </div>
-      )}
+      <AnimatePresence>
+        {isOpen && (
+          <motion.div 
+            initial={{ opacity: 0, height: 0 }}
+            animate={{ opacity: 1, height: 'auto' }}
+            exit={{ opacity: 0, height: 0 }}
+            className="nav-mobile glass"
+          >
+            <div className="container py-4">
+              {navLinks.map((link) => (
+                <Link 
+                  key={link.path} 
+                  to={link.path}
+                  className={`nav-mobile-link ${location.pathname === link.path ? 'active' : ''}`}
+                  onClick={() => setIsOpen(false)}
+                >
+                  {link.label}
+                </Link>
+              ))}
+              <div className="nav-mobile-footer">
+                <button onClick={toggleTheme} className="theme-toggle-mobile">
+                  {isDark ? <FiSun /> : <FiMoon />} {isDark ? 'Light Mode' : 'Dark Mode'}
+                </button>
+                {isAuthenticated && (
+                  <button onClick={logout} className="btn btn-outline w-full">Logout</button>
+                )}
+              </div>
+            </div>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </nav>
   );
 };
