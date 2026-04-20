@@ -1,0 +1,9 @@
+[build]
+  command = "npm run build"
+  publish = "dist"
+
+# This rewrite rule ensures React Router handles all paths smoothly without 404 errors
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200
