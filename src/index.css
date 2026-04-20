@@ -1,28 +1,27 @@
 @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Playfair+Display:wght@500;600;700;800&display=swap');
 
 :root {
-  /* Core Foundation Colors - Refined to match Lovable App */
-  --clr-blue: hsl(240, 60%, 42%); /* Primary Blue */
-  --clr-blue-light: hsl(240, 50%, 52%);
-  --clr-purple: hsl(174, 60%, 45%); /* Using Teal mapped from lovable */
-  --clr-gold: hsl(45, 95%, 55%); /* Highlight Yellow/Gold */
-  --clr-gold-light: hsl(45, 95%, 85%);
-  --clr-white: #FFFFFF;
+  /* Core palette (blue / gold / white) */
+  --clr-blue: hsl(220, 70%, 38%);
+  --clr-blue-2: hsl(220, 70%, 30%);
+  --clr-gold: hsl(45, 95%, 55%);
+  --clr-gold-2: hsl(45, 85%, 45%);
+  --clr-white: #ffffff;
   
-  /* Semantic Variables */
-  --clr-bg-page: hsl(30, 33%, 96%); /* Background */
-  --clr-surface: #FFFFFF;
-  --clr-heading: hsl(220, 20%, 20%); /* Foreground */
+  /* Surfaces + text (neutral; keep accents blue/gold) */
+  --clr-bg-page: hsl(30, 33%, 96%);
+  --clr-surface: #ffffff;
+  --clr-heading: hsl(220, 20%, 18%);
   
   /* Neutral / Text colors */
-  --clr-text-main: hsl(220, 20%, 20%); /* Foreground */
-  --clr-text-muted: hsl(220, 10%, 46%); /* Muted foreground */
-  --clr-bg-light: hsl(30, 20%, 93%); /* Muted */
-  --clr-bg-alt: hsl(220, 15%, 88%); /* Border / Input */
+  --clr-text-main: hsl(220, 20%, 18%);
+  --clr-text-muted: hsl(220, 10%, 46%);
+  --clr-bg-light: hsl(30, 20%, 93%);
+  --clr-bg-alt: hsl(220, 15%, 88%);
   
   /* Additional Accents */
-  --clr-error: hsl(0, 84%, 60%); /* Destructive */
-  --clr-success: hsl(160, 72%, 40%); /* Accent */
+  --clr-error: hsl(0, 84%, 60%);
+  --clr-success: hsl(160, 72%, 40%);
   
   /* Modern Shadows - Softer and more layered */
   --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
@@ -36,6 +35,23 @@
   /* Typography - Using Plus Jakarta Sans for a more modern, global feel */
   --font-primary: 'Plus Jakarta Sans', sans-serif;
   --font-heading: 'Playfair Display', serif;
+
+  /* Typography scale */
+  --fs-body: 1rem;
+  --fs-small: 0.95rem;
+  --fs-eyebrow: 0.9rem;
+  --fs-h1: clamp(2.75rem, 5.5vw, 4.25rem);
+  --fs-h2: clamp(2rem, 3.5vw, 3rem);
+  --fs-h3: clamp(1.35rem, 2.2vw, 1.85rem);
+  --fs-h4: 1.25rem;
+
+  /* Spacing scale */
+  --space-container-x: 2rem;
+  --space-section-y: clamp(6rem, 10vw, 10rem); /* 96–160px */
+  --space-stack-1: 0.75rem;
+  --space-stack-2: 1.25rem;
+  --space-stack-3: 2rem;
+  --space-stack-4: 3rem;
 }
 
 [data-theme='dark'] {
@@ -49,6 +65,8 @@
   --clr-text-muted: #94a3b8;
   
   --clr-gold: #fbbf24;
+  --clr-gold-2: #d97706;
+  --clr-blue-2: #0b2a4a;
   
   --clr-white: #FFFFFF;
   
@@ -87,6 +105,7 @@ body {
   line-height: 1.7; /* Improved vertical rhythm */
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  font-size: var(--fs-body);
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -96,6 +115,11 @@ h1, h2, h3, h4, h5, h6 {
   margin-bottom: 1.5rem;
   letter-spacing: -0.02em;
 }
+
+h1 { font-size: var(--fs-h1); }
+h2 { font-size: var(--fs-h2); }
+h3 { font-size: var(--fs-h3); }
+h4 { font-size: var(--fs-h4); }
 
 p {
   margin-bottom: 1.25rem;
@@ -127,7 +151,7 @@ input, textarea, select {
   width: 100%;
   max-width: 1200px;
   margin: 0 auto;
-  padding: 0 2rem;
+  padding: 0 var(--space-container-x);
 }
 
 @media (max-width: 480px) {
@@ -137,13 +161,7 @@ input, textarea, select {
 }
 
 .section {
-  padding: 8rem 0; /* Standardized generous spacing */
-}
-
-@media (max-width: 768px) {
-  .section {
-    padding: 5rem 0;
-  }
+  padding: var(--space-section-y) 0;
 }
 
 .section-bg-light {
@@ -170,7 +188,7 @@ input, textarea, select {
   padding: 0.875rem 2rem;
   border-radius: 50px; /* Modern rounded style */
   font-weight: 600;
-  font-size: 0.95rem;
+  font-size: var(--fs-small);
   text-align: center;
   transition: all var(--transition-normal);
   cursor: pointer;
@@ -183,7 +201,7 @@ input, textarea, select {
 }
 
 .btn-primary:hover {
-  background-color: #003366;
+  background-color: var(--clr-blue-2);
   transform: translateY(-2px);
   box-shadow: var(--shadow-md);
 }
@@ -194,7 +212,7 @@ input, textarea, select {
 }
 
 .btn-gold:hover {
-  background-color: #A68020;
+  background-color: var(--clr-gold-2);
   transform: translateY(-2px);
   box-shadow: var(--shadow-md);
 }
@@ -372,6 +390,32 @@ input, textarea, select {
 .btn:active {
   transform: translateY(0) scale(0.98);
 }
+
+.btn:focus-visible,
+.theme-toggle:focus-visible {
+  outline: 3px solid color-mix(in oklab, var(--clr-gold) 70%, transparent);
+  outline-offset: 3px;
+}
+
+/* Shared text utilities used across pages */
+.text-muted { color: var(--clr-text-muted); }
+.text-white { color: var(--clr-white); }
+
+/* Eyebrow label (small uppercase label above headings) */
+.eyebrow {
+  display: inline-block;
+  font-size: var(--fs-eyebrow);
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}
+.eyebrow--gold { color: var(--clr-gold); }
+.eyebrow--blue { color: var(--clr-blue); }
+.eyebrow--on-dark { color: var(--clr-gold); }
+
+/* Stack helpers (consistent vertical spacing between elements) */
+.stack { display: flex; flex-direction: column; gap: var(--space-stack-2); }
+.stack-lg { gap: var(--space-stack-4); }
 
 /* Scroll Padding for Nav Links */
 html {
