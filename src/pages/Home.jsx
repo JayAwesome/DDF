@@ -7,8 +7,18 @@ const Home = () => {
   return (
     <div className="home-page animate-fade-in">
       {/* Hero Section */}
-      <section className="hero premium-gradient-bg py-hero">
-        <div className="container" style={{ position: 'relative', zIndex: 2, textAlign: 'center' }}>
+      <section 
+        className="hero py-hero" 
+        style={{
+          position: 'relative',
+          backgroundImage: 'linear-gradient(rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0.6)), url("/assets/humanitarian-support-4.jpeg")',
+          backgroundSize: 'cover',
+          backgroundPosition: 'center',
+          backgroundAttachment: 'fixed',
+          color: 'white'
+        }}
+      >
+        <div className="container" style={{ position: 'relative', zIndex: 2, textAlign: 'left', display: 'flex', flexDirection: 'column', alignItems: 'flex-start' }}>
           <motion.div
             initial={{ opacity: 0, scale: 0.9 }}
             animate={{ opacity: 1, scale: 1 }}
@@ -17,15 +27,15 @@ const Home = () => {
             <span style={{ 
               display: 'inline-block', 
               padding: '0.6rem 1.75rem', 
-              background: 'rgba(212, 175, 55, 0.15)', 
+              background: 'rgba(222, 155, 37, 0.2)', /* Used new logo gold */
               borderRadius: '50px', 
               color: 'var(--clr-gold)', 
-              fontWeight: 700, 
-              fontSize: '0.9rem', 
+              fontWeight: 800, 
+              fontSize: '1rem', 
               textTransform: 'uppercase', 
               letterSpacing: '3px',
               marginBottom: '2rem',
-              border: '1px solid rgba(197, 160, 40, 0.3)'
+              border: '1px solid rgba(222, 155, 37, 0.4)'
             }}>
               Global Humanitarian Leadership
             </span>
@@ -35,27 +45,28 @@ const Home = () => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.2 }}
             className="hero-title"
+            style={{ maxWidth: '900px', fontSize: 'clamp(3rem, 6vw + 1rem, 5.5rem)' }}
           >
-            Building Pathways to <span className="text-gold">Sustainable</span> Growth
+            Empowering Communities. <br/><span style={{ color: 'var(--clr-gold)' }}>Transforming Lives.</span>
           </motion.h1>
           <motion.p 
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 0.8, delay: 0.4 }}
             className="subtitle-text"
-            style={{ maxWidth: '850px', margin: '0 auto 4rem', opacity: 0.9 }}
+            style={{ maxWidth: '750px', marginBottom: '3rem', opacity: 0.95, fontSize: 'clamp(1.2rem, 2vw + 0.5rem, 1.5rem)', lineHeight: 1.7 }}
           >
-            Dumelo Development Foundation is a credible, structured organization committed to transforming lives through strategic empowerment and humanitarian excellence.
+            Dumelo Development Foundation supports women, youth, and vulnerable communities through empowerment, education, and humanitarian services across Nigeria.
           </motion.p>
           <motion.div 
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.6 }}
             className="flex-responsive-row"
-            style={{ justifyContent: 'center', gap: '1.5rem', marginTop: '2rem' }}
+            style={{ gap: '1.5rem', marginTop: '1rem', justifyContent: 'flex-start' }}
           >
             <Link to="/get-involved" className="btn btn-gold hover-lift" style={{ padding: '1.25rem 3rem', fontSize: '1.1rem' }}>Partner With Us</Link>
-            <Link to="/programs" className="btn btn-outline hover-lift" style={{ borderColor: 'white', color: 'white', padding: '1.25rem 3rem', fontSize: '1.1rem' }}>Our Programs</Link>
+            <Link to="/programs" className="btn btn-outline hover-lift" style={{ borderColor: 'white', color: 'white', padding: '1.25rem 3rem', fontSize: '1.1rem', background: 'rgba(255,255,255,0.05)' }}>View Our Impact</Link>
           </motion.div>
         </div>
       </section>
