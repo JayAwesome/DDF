@@ -1,28 +1,28 @@
 @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Playfair+Display:wght@500;600;700;800&display=swap');
 
 :root {
-  /* Core Foundation Colors - Refined to match Logo */
-  --clr-blue: #1C3672; /* Deep blue from top hand */
-  --clr-blue-light: #2C53A3;
-  --clr-purple: #832F85; /* Purple from bottom hand */
-  --clr-gold: #DE9B25; /* Yellow/Orange from the ribbon */
-  --clr-gold-light: #FCE8C4;
+  /* Core Foundation Colors - Refined to match Lovable App */
+  --clr-blue: hsl(240, 60%, 42%); /* Primary Blue */
+  --clr-blue-light: hsl(240, 50%, 52%);
+  --clr-purple: hsl(174, 60%, 45%); /* Using Teal mapped from lovable */
+  --clr-gold: hsl(45, 95%, 55%); /* Highlight Yellow/Gold */
+  --clr-gold-light: hsl(45, 95%, 85%);
   --clr-white: #FFFFFF;
   
   /* Semantic Variables */
-  --clr-bg-page: #F6F3EE; /* Slight cream matching the logo background */
+  --clr-bg-page: hsl(30, 33%, 96%); /* Background */
   --clr-surface: #FFFFFF;
-  --clr-heading: #1C3672;
+  --clr-heading: hsl(220, 20%, 20%); /* Foreground */
   
   /* Neutral / Text colors */
-  --clr-text-main: #1F2937; /* Neutral 800 */
-  --clr-text-muted: #4B5563; /* Neutral 600 */
-  --clr-bg-light: #F3EFE9;
-  --clr-bg-alt: #EBE5DB;
+  --clr-text-main: hsl(220, 20%, 20%); /* Foreground */
+  --clr-text-muted: hsl(220, 10%, 46%); /* Muted foreground */
+  --clr-bg-light: hsl(30, 20%, 93%); /* Muted */
+  --clr-bg-alt: hsl(220, 15%, 88%); /* Border / Input */
   
   /* Additional Accents */
-  --clr-error: #EF4444; /* Red from ribbon */
-  --clr-success: #10B981; /* Green from ribbon */
+  --clr-error: hsl(0, 84%, 60%); /* Destructive */
+  --clr-success: hsl(160, 72%, 40%); /* Accent */
   
   /* Modern Shadows - Softer and more layered */
   --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);

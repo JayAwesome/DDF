@@ -37,9 +37,9 @@ const Navbar = () => {
       <div className="container nav-container">
         <Link to="/" className="nav-logo" style={{ display: 'flex', alignItems: 'center' }}>
           <img 
-            src="/assets/logo.png" 
+            src="/assets/logo.jpg" 
             alt="Dumelo Development Foundation Logo" 
-            style={{ height: '50px', width: 'auto', objectFit: 'contain' }} 
+            style={{ height: '50px', width: 'auto', objectFit: 'contain', borderRadius: '50%' }} 
             onError={(e) => {
               // Fallback text if logo image is not found yet
               e.target.style.display = 'none';
