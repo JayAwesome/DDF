@@ -6,33 +6,33 @@ const Contact = () => {
   return (
     <div className="contact-page animate-fade-in">
       {/* Page Header */}
-      <div className="section-bg-blue py-section-header text-center">
+      <header className="page-header">
         <div className="container">
-          <span style={{ color: 'var(--clr-gold)', textTransform: 'uppercase', letterSpacing: '2px', fontWeight: 700, fontSize: '0.9rem' }}>Get in Touch</span>
-          <h1 className="hero-title mt-2 mb-4 text-white">Contact Us</h1>
-          <p className="subtitle-text text-white" style={{ maxWidth: '700px', margin: '0 auto', opacity: 0.9 }}>
+          <span style={{ color: 'var(--clr-gold)', textTransform: 'uppercase', letterSpacing: '2px', fontWeight: 800, fontSize: '0.9rem', display: 'block', marginBottom: '1rem' }}>Get in Touch</span>
+          <h1 className="hero-title">Contact Us</h1>
+          <p className="subtitle-text" style={{ maxWidth: '750px', margin: '0 auto', opacity: 0.9 }}>
             Reach out to coordinate partnerships, volunteer for our missions, or request organizational support.
           </p>
         </div>
-      </div>
+      </header>
 
-      <div className="section py-section">
+      <section className="section">
         <div className="container">
-          <div className="flex-responsive-row" style={{ alignItems: 'flex-start' }}>
+          <div className="flex-responsive-row" style={{ alignItems: 'flex-start', gap: '5rem' }}>
             
             {/* Contact Info */}
             <div style={{ flex: '1 1 350px' }}>
-              <h2 className="section-title mb-5">Connect With Us</h2>
-              <div style={{ display: 'flex', flexDirection: 'column', gap: '2.5rem' }}>
+              <h2 className="section-title">Connect With Us</h2>
+              <div style={{ display: 'flex', flexDirection: 'column', gap: '2rem' }}>
                 
                 {[
                   { icon: <FiMapPin />, title: 'Our Location', content: 'Plot 31, Atta A. A. Street, Kado Estate, Abuja, Nigeria' },
                   { icon: <FiMail />, title: 'Email Address', content: 'info@dumelofoundation.org' },
                   { icon: <FiPhone />, title: 'Phone Number', content: '+234 803 300 0000' }
                 ].map((item, i) => (
-                  <div key={i} className="hover-lift" style={{ display: 'flex', gap: '1.5rem', alignItems: 'flex-start', background: 'var(--clr-surface)', padding: '1.5rem', borderRadius: '16px', border: '1px solid var(--clr-bg-alt)' }}>
+                  <div key={i} className="hover-lift" style={{ display: 'flex', gap: '1.5rem', alignItems: 'center', background: 'var(--clr-surface)', padding: '1.5rem 2rem', borderRadius: '24px', border: '1px solid var(--clr-bg-alt)', boxShadow: 'var(--shadow-sm)' }}>
                     <div style={{ 
-                      background: 'var(--clr-bg-light)', 
+                      background: 'var(--clr-blue)', 
                       color: 'var(--clr-gold)', 
                       padding: '1.25rem', 
                       borderRadius: '16px', 
@@ -43,8 +43,8 @@ const Contact = () => {
                       {item.icon}
                     </div>
                     <div>
-                      <h4 style={{ marginBottom: '0.5rem', fontSize: '1.1rem', fontWeight: 700, color: 'var(--clr-blue)' }}>{item.title}</h4>
-                      <p style={{ color: 'var(--clr-text-muted)', margin: 0, fontSize: '1.05rem' }}>{item.content}</p>
+                      <h4 className="card-title" style={{ marginBottom: '0.25rem' }}>{item.title}</h4>
+                      <p style={{ color: 'var(--clr-text-muted)', margin: 0, fontSize: '1.1rem' }}>{item.content}</p>
                     </div>
                   </div>
                 ))}
@@ -53,17 +53,17 @@ const Contact = () => {
               <div className="glass-panel" style={{ 
                 marginTop: '4rem', 
                 background: 'var(--clr-bg-light)', 
-                padding: '2.5rem', 
-                borderRadius: '20px', 
-                borderLeft: '5px solid var(--clr-blue)',
+                padding: '3rem', 
+                borderRadius: '32px', 
+                borderLeft: '8px solid var(--clr-gold)',
                 boxShadow: 'var(--shadow-md)'
               }}>
-                <div style={{ display: 'flex', alignItems: 'center', gap: '1rem', marginBottom: '1rem' }}>
-                  <FiClock style={{ color: 'var(--clr-blue)', fontSize: '1.5rem' }} />
-                  <h4 style={{ margin: 0, color: 'var(--clr-blue)' }}>Operating Hours</h4>
+                <div style={{ display: 'flex', alignItems: 'center', gap: '1.25rem', marginBottom: '1.5rem' }}>
+                  <FiClock style={{ color: 'var(--clr-blue)', fontSize: '2rem' }} />
+                  <h4 className="card-title" style={{ margin: 0 }}>Operating Hours</h4>
                 </div>
-                <p style={{ margin: '0 0 0.5rem', color: 'var(--clr-text-muted)', fontSize: '1rem' }}>Monday - Friday: 9:00 AM - 5:00 PM</p>
-                <p style={{ margin: 0, color: 'var(--clr-text-muted)', fontSize: '1rem' }}>Saturday - Sunday: Closed</p>
+                <p className="subtitle-text" style={{ fontSize: '1.1rem', margin: '0 0 0.5rem', color: 'var(--clr-text-muted)' }}>Monday - Friday: 9:00 AM - 5:00 PM</p>
+                <p className="subtitle-text" style={{ fontSize: '1.1rem', margin: 0, color: 'var(--clr-text-muted)' }}>Saturday - Sunday: Closed</p>
               </div>
             </div>
 
@@ -76,15 +76,15 @@ const Contact = () => {
                 viewport={{ once: true }}
                 style={{ 
                   background: 'var(--clr-surface)', 
-                  padding: '3rem', 
-                  borderRadius: '24px', 
+                  padding: 'clamp(2rem, 5vw, 4rem)', 
+                  borderRadius: '40px', 
                   boxShadow: 'var(--shadow-lg)',
-                  border: '1px solid rgba(0,0,0,0.05)'
+                  border: '1px solid var(--clr-bg-alt)'
                 }}
               >
-                <h3 className="section-title mb-5" style={{ fontSize: '2rem' }}>Send us a Message</h3>
-                <form style={{ display: 'flex', flexDirection: 'column', gap: '1.5rem' }}>
-                  <div className="grid-cols-cards" style={{ gap: '1.5rem', gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))' }}>
+                <h3 className="section-title" style={{ fontSize: 'clamp(2rem, 3vw, 2.5rem)', textAlign: 'left' }}>Send us a Message</h3>
+                <form style={{ display: 'flex', flexDirection: 'column', gap: '2rem' }}>
+                  <div className="grid-cols-cards" style={{ gap: '2rem', gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))' }}>
                     <div>
                       <label htmlFor="contactName" style={labelStyle}>Full Name</label>
                       <input id="contactName" type="text" style={inputStyle} placeholder="Full Name" />
@@ -105,7 +105,7 @@ const Contact = () => {
                     <textarea id="contactMessage" rows="5" style={{ ...inputStyle, resize: 'vertical' }} placeholder="Your message here..."></textarea>
                   </div>
 
-                  <button type="button" className="btn btn-primary hover-lift" style={{ padding: '1.25rem', fontSize: '1.1rem', marginTop: '1rem' }}>
+                  <button type="button" className="btn btn-primary hover-lift" style={{ width: '100%', padding: '1.25rem', fontSize: '1.1rem', marginTop: '1rem' }}>
                     Send Message
                   </button>
                 </form>
@@ -114,12 +114,13 @@ const Contact = () => {
           </div>
 
           {/* Map Section */}
-          <div style={{ marginTop: '6rem' }}>
+          <div style={{ marginTop: '10rem' }}>
             <div className="text-center mb-5">
-              <h2 className="section-title mb-3">Our Global Office</h2>
-              <p className="subtitle-text text-muted">Kado Estate, Abuja – The heart of our operations.</p>
+              <span style={{ color: 'var(--clr-gold)', fontWeight: 800, textTransform: 'uppercase', letterSpacing: '2px', fontSize: '0.9rem', display: 'block', marginBottom: '1rem' }}>Global HQ</span>
+              <h2 className="section-title">Our Global Office</h2>
+              <p className="subtitle-text text-muted">Plot 31, Atta A. A. Street, Kado Estate, Abuja – The heart of our operations.</p>
             </div>
-            <div style={{ borderRadius: '24px', overflow: 'hidden', boxShadow: 'var(--shadow-lg)', height: '500px', background: 'var(--clr-bg-light)', border: '1px solid #eee' }}>
+            <div style={{ borderRadius: '40px', overflow: 'hidden', boxShadow: 'var(--shadow-lg)', height: '550px', background: 'var(--clr-bg-light)', border: '1px solid var(--clr-bg-alt)' }}>
               <iframe
                 width="100%"
                 height="100%"
@@ -134,7 +135,7 @@ const Contact = () => {
           </div>
 
         </div>
-      </div>
+      </section>
     </div>
   );
 };

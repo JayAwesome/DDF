@@ -54,19 +54,19 @@ const Programs = () => {
   return (
     <div className="programs-page animate-fade-in">
       {/* Page Header */}
-      <div className="section-bg-blue py-section-header text-center">
-        <div className="container" style={{ textAlign: 'center' }}>
-          <span style={{ color: 'var(--clr-gold)', textTransform: 'uppercase', letterSpacing: '2px', fontWeight: 700, fontSize: '0.9rem' }}>Our Initiatives</span>
-          <h1 className="hero-title text-white mt-2 mb-4">Key Program Areas</h1>
-          <p className="subtitle-text text-white" style={{ maxWidth: '750px', margin: '0 auto', opacity: 0.9 }}>
+      <header className="page-header">
+        <div className="container">
+          <span style={{ color: 'var(--clr-gold)', textTransform: 'uppercase', letterSpacing: '2px', fontWeight: 800, fontSize: '0.9rem', display: 'block', marginBottom: '1rem' }}>Our Initiatives</span>
+          <h1 className="hero-title">Key Program Areas</h1>
+          <p className="subtitle-text" style={{ maxWidth: '750px', margin: '0 auto', opacity: 0.9 }}>
             Explore the core strategic pillars where we channel our resources to effect meaningful, structured, and sustainable global change.
           </p>
         </div>
-      </div>
+      </header>
 
-      <section className="section py-section">
-        <div className="container" style={{ maxWidth: '1100px' }}>
-          <div style={{ display: 'flex', flexDirection: 'column', gap: '6rem' }}>
+      <section className="section">
+        <div className="container">
+          <div style={{ display: 'flex', flexDirection: 'column', gap: '8rem' }}>
             {programs.map((prog, idx) => (
               <motion.div 
                 key={idx}
@@ -75,42 +75,43 @@ const Programs = () => {
                 transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
                 viewport={{ once: true, margin: '-100px' }}
                 className="flex-responsive-row"
-                style={{ flexDirection: idx % 2 === 0 ? 'row' : 'row-reverse' }}
+                style={{ flexDirection: idx % 2 === 0 ? 'row' : 'row-reverse', gap: '5rem' }}
               >
-                <div style={{ flex: '1 1 400px', position: 'relative', width: '100%' }}>
-                  <div style={{ borderRadius: '24px', overflow: 'hidden', boxShadow: 'var(--shadow-lg)' }}>
-                    <img src={prog.img} alt={prog.title} style={{ width: '100%', height: '400px', objectFit: 'cover' }} />
+                <div style={{ flex: '1 1 450px', position: 'relative' }}>
+                  <div style={{ borderRadius: '32px', overflow: 'hidden', boxShadow: 'var(--shadow-lg)', border: '1px solid var(--clr-bg-alt)' }}>
+                    <img src={prog.img} alt={prog.title} style={{ width: '100%', height: '450px', objectFit: 'cover', display: 'block' }} />
                   </div>
                   <div style={{ 
                     position: 'absolute', 
-                    bottom: '-20px', 
-                    [idx % 2 === 0 ? 'right' : 'left']: '20px',
+                    bottom: '-25px', 
+                    [idx % 2 === 0 ? 'right' : 'left']: '30px',
                     background: 'var(--clr-gold)',
                     color: 'white',
-                    padding: '1rem 1.5rem',
-                    borderRadius: '16px',
-                    fontWeight: 800,
-                    boxShadow: 'var(--shadow-md)'
+                    padding: '1.25rem 2rem',
+                    borderRadius: '20px',
+                    fontWeight: 900,
+                    boxShadow: 'var(--shadow-lg)',
+                    fontSize: '1.5rem'
                   }}>
                     0{idx + 1}
                   </div>
                 </div>
-                <div style={{ flex: '1 1 400px', width: '100%' }}>
-                  <h2 className="section-title mb-4" style={{ color: 'var(--clr-heading)' }}>{prog.title}</h2>
+                <div style={{ flex: '1 1 500px', textAlign: 'left' }}>
+                  <h2 className="section-title" style={{ marginBottom: '2.5rem' }}>{prog.title}</h2>
                   
-                  <ul style={{ padding: 0, display: 'flex', flexDirection: 'column', gap: '1.25rem' }}>
+                  <ul style={{ padding: 0, display: 'flex', flexDirection: 'column', gap: '1.5rem' }}>
                     {prog.list.map((item, idxx) => (
-                      <li key={idxx} style={{ display: 'flex', alignItems: 'flex-start', gap: '1rem', color: 'var(--clr-text-main)', fontSize: '1.1rem' }}>
-                        <FiCheckCircle style={{ color: 'var(--clr-gold)', fontSize: '1.5rem', flexShrink: 0, marginTop: '0.2rem' }} />
-                        <span>{item}</span>
+                      <li key={idxx} style={{ display: 'flex', alignItems: 'flex-start', gap: '1.25rem' }}>
+                        <FiCheckCircle style={{ color: 'var(--clr-gold)', fontSize: '1.75rem', flexShrink: 0, marginTop: '0.2rem' }} />
+                        <span className="subtitle-text" style={{ color: 'var(--clr-text-main)', fontSize: '1.15rem' }}>{item}</span>
                       </li>
                     ))}
                   </ul>
                   
-                  <div style={{ marginTop: '2.5rem' }}>
-                    <button className="btn btn-outline hover-lift" style={{ display: 'flex', alignItems: 'center', gap: '0.75rem' }}>
+                  <div style={{ marginTop: '3.5rem' }}>
+                    <Link to="/contact" className="btn btn-primary hover-lift" style={{ display: 'flex', alignItems: 'center', gap: '0.75rem', width: 'fit-content' }}>
                       Partner on this Program <FiArrowRight />
-                    </button>
+                    </Link>
                   </div>
                 </div>
               </motion.div>
@@ -120,12 +121,12 @@ const Programs = () => {
       </section>
       
       {/* Membership Benefits Integration */}
-      <section className="section py-section section-bg-light">
+      <section className="section section-bg-light">
           <div className="container">
             <div className="text-center mb-5">
-              <span style={{ color: 'var(--clr-blue)', fontWeight: 800, fontSize: '0.9rem', textTransform: 'uppercase', letterSpacing: '2px' }}>Ecosystem Engagement</span>
-              <h2 className="section-title mt-2 mb-3">Membership & Benefits</h2>
-              <p className="subtitle-text text-muted" style={{ maxWidth: '700px', margin: '0 auto' }}>
+              <span style={{ color: 'var(--clr-blue)', fontWeight: 800, fontSize: '0.9rem', textTransform: 'uppercase', letterSpacing: '2px', display: 'block', marginBottom: '1rem' }}>Ecosystem Engagement</span>
+              <h2 className="section-title">Membership & Benefits</h2>
+              <p className="subtitle-text text-muted" style={{ maxWidth: '800px', margin: '0 auto' }}>
                 Join our growing ecosystem to unlock a myriad of opportunities designed for institutional and individual growth.
               </p>
             </div>
@@ -143,12 +144,13 @@ const Programs = () => {
                     key={i} 
                     className="hover-lift glass-panel"
                     style={{ 
-                      padding: '2.5rem', 
-                      background: 'var(--clr-surface)'
+                      padding: '3rem', 
+                      background: 'var(--clr-surface)',
+                      borderRadius: '24px'
                     }}
                   >
-                    <h4 style={{ color: 'var(--clr-blue)', marginBottom: '1rem', fontSize: '1.25rem' }}>{benefit.title}</h4>
-                    <p style={{ color: 'var(--clr-text-muted)', margin: 0, lineHeight: 1.6 }}>{benefit.desc}</p>
+                    <h4 className="card-title" style={{ fontSize: '1.35rem' }}>{benefit.title}</h4>
+                    <p style={{ color: 'var(--clr-text-muted)', margin: 0, lineHeight: 1.7, fontSize: '1.05rem' }}>{benefit.desc}</p>
                   </motion.div>
                 ))}
              </div>
