@@ -33,10 +33,20 @@ const Navbar = () => {
   ];
 
   return (
-    <nav className={`navbar glass ${scrolled ? 'scrolled' : ''}`}>
+    <nav className={`navbar glass ${scrolled ? 'scrolled' : ''}`} aria-label="Main Navigation">
       <div className="container nav-container">
-        <Link to="/" className="nav-logo">
-          <h1>Dumelo <span>Foundation</span></h1>
+        <Link to="/" className="nav-logo" style={{ display: 'flex', alignItems: 'center' }}>
+          <img 
+            src="/assets/logo.png" 
+            alt="Dumelo Development Foundation Logo" 
+            style={{ height: '50px', width: 'auto', objectFit: 'contain' }} 
+            onError={(e) => {
+              // Fallback text if logo image is not found yet
+              e.target.style.display = 'none';
+              e.target.nextElementSibling.style.display = 'block';
+            }}
+          />
+          <h1 style={{ display: 'none', margin: 0, fontSize: '1.5rem', fontWeight: 800 }}>Dumelo <span style={{ color: 'var(--clr-gold)' }}>Foundation</span></h1>
         </Link>
         
         <div className="nav-desktop">
@@ -69,7 +79,12 @@ const Navbar = () => {
           </div>
         </div>
 
-        <button className="mobile-menu-btn" onClick={toggleMenu}>
+        <button 
+          className="mobile-menu-btn" 
+          onClick={toggleMenu}
+          aria-expanded={isOpen}
+          aria-label="Toggle navigation menu"
+        >
           {isOpen ? <FiX /> : <FiMenu />}
         </button>
       </div>

@@ -54,19 +54,19 @@ const Programs = () => {
   return (
     <div className="programs-page animate-fade-in">
       {/* Page Header */}
-      <div className="section-bg-blue" style={{ padding: '8rem 0', textAlign: 'center' }}>
-        <div className="container">
+      <div className="section-bg-blue py-section-header text-center">
+        <div className="container" style={{ textAlign: 'center' }}>
           <span style={{ color: 'var(--clr-gold)', textTransform: 'uppercase', letterSpacing: '2px', fontWeight: 700, fontSize: '0.9rem' }}>Our Initiatives</span>
-          <h1 style={{ fontSize: '3.5rem', marginBottom: '1.5rem', marginTop: '1rem' }}>Key Program Areas</h1>
-          <p style={{ fontSize: '1.25rem', color: '#d1e0ff', maxWidth: '750px', margin: '0 auto', lineHeight: 1.6 }}>
+          <h1 className="hero-title text-white mt-2 mb-4">Key Program Areas</h1>
+          <p className="subtitle-text text-white" style={{ maxWidth: '750px', margin: '0 auto', opacity: 0.9 }}>
             Explore the core strategic pillars where we channel our resources to effect meaningful, structured, and sustainable global change.
           </p>
         </div>
       </div>
 
-      <section className="section">
+      <section className="section py-section">
         <div className="container" style={{ maxWidth: '1100px' }}>
-          <div style={{ display: 'flex', flexDirection: 'column', gap: '8rem' }}>
+          <div style={{ display: 'flex', flexDirection: 'column', gap: '6rem' }}>
             {programs.map((prog, idx) => (
               <motion.div 
                 key={idx}
@@ -74,25 +74,20 @@ const Programs = () => {
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
                 viewport={{ once: true, margin: '-100px' }}
-                style={{ 
-                  display: 'flex', 
-                  flexDirection: idx % 2 === 0 ? 'row' : 'row-reverse',
-                  gap: '5rem',
-                  alignItems: 'center',
-                  flexWrap: 'wrap'
-                }}
+                className="flex-responsive-row"
+                style={{ flexDirection: idx % 2 === 0 ? 'row' : 'row-reverse' }}
               >
-                <div style={{ flex: '1 1 450px', position: 'relative' }}>
+                <div style={{ flex: '1 1 400px', position: 'relative', width: '100%' }}>
                   <div style={{ borderRadius: '24px', overflow: 'hidden', boxShadow: 'var(--shadow-lg)' }}>
-                    <img src={prog.img} alt={prog.title} style={{ width: '100%', height: '450px', objectFit: 'cover' }} />
+                    <img src={prog.img} alt={prog.title} style={{ width: '100%', height: '400px', objectFit: 'cover' }} />
                   </div>
                   <div style={{ 
                     position: 'absolute', 
-                    bottom: '-25px', 
-                    [idx % 2 === 0 ? 'right' : 'left']: '-25px',
+                    bottom: '-20px', 
+                    [idx % 2 === 0 ? 'right' : 'left']: '20px',
                     background: 'var(--clr-gold)',
                     color: 'white',
-                    padding: '1.5rem 2rem',
+                    padding: '1rem 1.5rem',
                     borderRadius: '16px',
                     fontWeight: 800,
                     boxShadow: 'var(--shadow-md)'
@@ -100,8 +95,8 @@ const Programs = () => {
                     0{idx + 1}
                   </div>
                 </div>
-                <div style={{ flex: '1 1 450px' }}>
-                  <h2 style={{ fontSize: '2.5rem', color: 'var(--clr-heading)', marginBottom: '2rem' }}>{prog.title}</h2>
+                <div style={{ flex: '1 1 400px', width: '100%' }}>
+                  <h2 className="section-title mb-4" style={{ color: 'var(--clr-heading)' }}>{prog.title}</h2>
                   
                   <ul style={{ padding: 0, display: 'flex', flexDirection: 'column', gap: '1.25rem' }}>
                     {prog.list.map((item, idxx) => (
@@ -113,7 +108,7 @@ const Programs = () => {
                   </ul>
                   
                   <div style={{ marginTop: '2.5rem' }}>
-                    <button className="btn btn-outline" style={{ display: 'flex', alignItems: 'center', gap: '0.75rem' }}>
+                    <button className="btn btn-outline hover-lift" style={{ display: 'flex', alignItems: 'center', gap: '0.75rem' }}>
                       Partner on this Program <FiArrowRight />
                     </button>
                   </div>
@@ -125,17 +120,17 @@ const Programs = () => {
       </section>
       
       {/* Membership Benefits Integration */}
-      <section className="section section-bg-light">
+      <section className="section py-section section-bg-light">
           <div className="container">
             <div className="text-center mb-5">
               <span style={{ color: 'var(--clr-blue)', fontWeight: 800, fontSize: '0.9rem', textTransform: 'uppercase', letterSpacing: '2px' }}>Ecosystem Engagement</span>
-              <h2 style={{ fontSize: '3rem', marginTop: '1rem' }}>Membership & Benefits</h2>
-              <p style={{ color: 'var(--clr-text-muted)', fontSize: '1.15rem', maxWidth: '700px', margin: '1.5rem auto' }}>
+              <h2 className="section-title mt-2 mb-3">Membership & Benefits</h2>
+              <p className="subtitle-text text-muted" style={{ maxWidth: '700px', margin: '0 auto' }}>
                 Join our growing ecosystem to unlock a myriad of opportunities designed for institutional and individual growth.
               </p>
             </div>
             
-            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: '2rem' }}>
+            <div className="grid-cols-cards">
                 {[
                   { title: 'Cooperative Access', desc: 'Secure access to cooperative loans and financial scaling opportunities.' },
                   { title: 'Skills Development', desc: 'Premium vocational training and modern skills acquisition schemes.' },
@@ -146,13 +141,10 @@ const Programs = () => {
                 ].map((benefit, i) => (
                   <motion.div 
                     key={i} 
-                    whileHover={{ y: -5 }}
+                    className="hover-lift glass-panel"
                     style={{ 
-                      background: 'var(--clr-surface)', 
                       padding: '2.5rem', 
-                      borderRadius: '20px', 
-                      boxShadow: 'var(--shadow-md)', 
-                      border: '1px solid rgba(0,0,0,0.05)'
+                      background: 'var(--clr-surface)'
                     }}
                   >
                     <h4 style={{ color: 'var(--clr-blue)', marginBottom: '1rem', fontSize: '1.25rem' }}>{benefit.title}</h4>
