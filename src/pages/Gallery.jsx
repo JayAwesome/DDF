@@ -13,15 +13,15 @@ const Gallery = () => {
   return (
     <div className="gallery-page animate-fade-in">
       {/* Page Header */}
-      <div className="section-bg-blue" style={{ padding: '8rem 0', textAlign: 'center' }}>
+      <header className="page-header">
         <div className="container">
-          <span style={{ color: 'var(--clr-gold)', textTransform: 'uppercase', letterSpacing: '2px', fontWeight: 700, fontSize: '0.9rem' }}>Visual Journey</span>
-          <h1 style={{ fontSize: '3.5rem', marginBottom: '1.5rem', marginTop: '1rem' }}>Media Gallery</h1>
-          <p style={{ fontSize: '1.25rem', color: '#d1e0ff', maxWidth: '750px', margin: '0 auto', lineHeight: 1.6 }}>
-            A glimpse into our outreach initiatives, community events, and the lives transformed through our global missions.
+          <span className="eyebrow eyebrow--gold" style={{ display: 'block', marginBottom: '1rem' }}>Visual Journey</span>
+          <h1 className="hero-title">Media Gallery</h1>
+          <p className="subtitle-text" style={{ color: 'rgba(255,255,255,0.85)', maxWidth: '750px', margin: '0 auto' }}>
+            Photos from outreach moments, community events, and empowerment programs across Nigeria.
           </p>
         </div>
-      </div>
+      </header>
 
       <div className="section">
         <div className="container">
@@ -59,7 +59,7 @@ const Gallery = () => {
                   alignItems: 'flex-end',
                   justifyContent: 'space-between'
                 }} className="gallery-overlay">
-                  <span style={{ color: 'white', fontWeight: 600, fontSize: '0.9rem' }}>{img.cap}</span>
+                  <span style={{ color: 'white', fontWeight: 600, fontSize: 'var(--fs-small)' }}>{img.cap}</span>
                   <FiMaximize2 style={{ color: 'var(--clr-gold)', fontSize: '1.25rem' }} />
                 </div>
               </motion.div>

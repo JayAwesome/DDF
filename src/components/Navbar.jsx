@@ -27,6 +27,8 @@ const Navbar = () => {
     { path: '/about', label: 'About Us' },
     { path: '/leadership', label: 'Leadership' },
     { path: '/programs', label: 'Programs' },
+    { path: '/impact', label: 'Impact' },
+    { path: '/credibility', label: 'Credibility' },
     { path: '/gallery', label: 'Gallery' },
     { path: '/get-involved', label: 'Get Involved' },
     { path: '/contact', label: 'Contact' },

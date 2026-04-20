@@ -1,5 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
+import { FiCheckCircle } from 'react-icons/fi';
 
 const Leadership = () => {
   return (
@@ -7,10 +8,10 @@ const Leadership = () => {
       {/* Page Header */}
       <header className="page-header">
         <div className="container">
-          <span style={{ color: 'var(--clr-gold)', textTransform: 'uppercase', letterSpacing: '2px', fontWeight: 800, fontSize: '0.9rem', display: 'block', marginBottom: '1rem' }}>Institutional Governance</span>
+          <span className="eyebrow eyebrow--gold" style={{ display: 'block', marginBottom: '1rem' }}>Institutional Governance</span>
           <h1 className="hero-title">Leadership & Trust</h1>
           <p className="subtitle-text" style={{ maxWidth: '750px', margin: '0 auto', opacity: 0.9 }}>
-            Our organization is constitutionally governed and led by a dedicated Board of Trustees committed to transparency and humanitarian excellence.
+            Meet the people and structure guiding our work—built on accountability, clear roles, and service.
           </p>
         </div>
       </header>
@@ -42,7 +43,7 @@ const Leadership = () => {
           {/* Founder Profile Section */}
           <div className="glass-panel" style={{ padding: 'clamp(2rem, 8vw, 6rem)', borderRadius: '40px', background: 'var(--clr-bg-light)', marginBottom: '8rem' }}>
             <div className="text-center mb-5">
-              <span style={{ color: 'var(--clr-blue)', fontWeight: 800, textTransform: 'uppercase', letterSpacing: '2px', fontSize: '0.9rem', display: 'block', marginBottom: '1rem' }}>The Visionary</span>
+              <span className="eyebrow eyebrow--blue" style={{ display: 'block', marginBottom: '1rem' }}>The Visionary</span>
               <h2 className="section-title" style={{ color: 'var(--clr-gold)' }}>Founder Profile</h2>
             </div>
             
@@ -94,7 +95,7 @@ const Leadership = () => {
           {/* Board of Trustees Section */}
           <div style={{ marginBottom: '10rem' }}>
             <div className="text-center mb-5">
-              <span style={{ color: 'var(--clr-gold)', fontWeight: 800, textTransform: 'uppercase', letterSpacing: '2px', fontSize: '0.9rem', display: 'block', marginBottom: '1rem' }}>Strategic Direction</span>
+              <span className="eyebrow eyebrow--gold" style={{ display: 'block', marginBottom: '1rem' }}>Strategic Direction</span>
               <h2 className="section-title">Board of Trustees</h2>
               <p className="subtitle-text text-muted" style={{ maxWidth: '800px', margin: '0 auto' }}>The governing body ensuring the foundation's strategic direction and compliance.</p>
             </div>

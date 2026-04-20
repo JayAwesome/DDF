@@ -8,10 +8,10 @@ const Contact = () => {
       {/* Page Header */}
       <header className="page-header">
         <div className="container">
-          <span style={{ color: 'var(--clr-gold)', textTransform: 'uppercase', letterSpacing: '2px', fontWeight: 800, fontSize: '0.9rem', display: 'block', marginBottom: '1rem' }}>Get in Touch</span>
+          <span className="eyebrow eyebrow--gold" style={{ display: 'block', marginBottom: '1rem' }}>Get in Touch</span>
           <h1 className="hero-title">Contact Us</h1>
           <p className="subtitle-text" style={{ maxWidth: '750px', margin: '0 auto', opacity: 0.9 }}>
-            Reach out to coordinate partnerships, volunteer for our missions, or request organizational support.
+            Send a message to partner, volunteer, sponsor a program, or request support.
           </p>
         </div>
       </header>
@@ -116,7 +116,7 @@ const Contact = () => {
           {/* Map Section */}
           <div style={{ marginTop: '10rem' }}>
             <div className="text-center mb-5">
-              <span style={{ color: 'var(--clr-gold)', fontWeight: 800, textTransform: 'uppercase', letterSpacing: '2px', fontSize: '0.9rem', display: 'block', marginBottom: '1rem' }}>Global HQ</span>
+              <span className="eyebrow eyebrow--gold" style={{ display: 'block', marginBottom: '1rem' }}>Global HQ</span>
               <h2 className="section-title">Our Global Office</h2>
               <p className="subtitle-text text-muted">Plot 31, Atta A. A. Street, Kado Estate, Abuja – The heart of our operations.</p>
             </div>

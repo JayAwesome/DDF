@@ -15,6 +15,8 @@ import Gallery from './pages/Gallery';
 import GetInvolved from './pages/GetInvolved';
 import Contact from './pages/Contact';
 import AdminDashboard from './pages/AdminDashboard';
+import Impact from './pages/Impact';
+import Credibility from './pages/Credibility';
 
 function App() {
   return (
@@ -29,6 +31,8 @@ function App() {
               <Route path="/about" element={<About />} />
               <Route path="/leadership" element={<Leadership />} />
               <Route path="/programs" element={<Programs />} />
+              <Route path="/impact" element={<Impact />} />
+              <Route path="/credibility" element={<Credibility />} />
               <Route path="/gallery" element={<Gallery />} />
               <Route path="/get-involved" element={<GetInvolved />} />
               <Route path="/contact" element={<Contact />} />

@@ -7,10 +7,10 @@ const GetInvolved = () => {
       {/* Page Header */}
       <header className="page-header">
         <div className="container">
-          <span style={{ color: 'var(--clr-gold)', textTransform: 'uppercase', letterSpacing: '2px', fontWeight: 800, fontSize: '0.9rem', display: 'block', marginBottom: '1rem' }}>Support the Mission</span>
+          <span className="eyebrow eyebrow--gold" style={{ display: 'block', marginBottom: '1rem' }}>Support the Mission</span>
           <h1 className="hero-title">Get Involved</h1>
           <p className="subtitle-text" style={{ maxWidth: '750px', margin: '0 auto', opacity: 0.9 }}>
-            Join hands with us to bring hope, support, and lasting change to the vulnerable. We cannot do this alone.
+            Volunteer, partner, or sponsor a program—your support turns into direct help for people and communities.
           </p>
         </div>
       </header>
@@ -88,14 +88,14 @@ const GetInvolved = () => {
                 </ul>
                 
                 <div style={{ background: 'var(--clr-surface)', padding: '2.5rem', borderRadius: '24px', marginBottom: '2rem', border: '1px solid var(--clr-bg-alt)' }}>
-                  <h4 className="card-title" style={{ color: 'var(--clr-blue)', marginBottom: '1.5rem', textTransform: 'uppercase', fontSize: '0.9rem', letterSpacing: '1px' }}>Local Bank Transfer</h4>
+                  <h4 className="eyebrow eyebrow--blue" style={{ marginBottom: '1.5rem' }}>Local Bank Transfer</h4>
                   <p style={{ margin: '0 0 0.5rem', fontSize: '1rem' }}><strong>GT Bank (Naira)</strong></p>
                   <p style={{ margin: '0 0 0.5rem', fontSize: '1rem' }}><strong>Account:</strong> Dumelo Development Foundation</p>
                   <p style={{ margin: 0, color: 'var(--clr-gold)', fontWeight: 800, fontSize: '1.35rem' }}>0123456789</p>
                 </div>
                 
                 <div style={{ background: 'var(--clr-surface)', padding: '2.5rem', borderRadius: '24px', border: '1px solid var(--clr-bg-alt)' }}>
-                  <h4 className="card-title" style={{ color: 'var(--clr-blue)', marginBottom: '1rem', textTransform: 'uppercase', fontSize: '0.9rem', letterSpacing: '1px' }}>International Pledges</h4>
+                  <h4 className="eyebrow eyebrow--blue" style={{ marginBottom: '1rem' }}>International Pledges</h4>
                   <p style={{ margin: 0, fontSize: '1rem', opacity: 0.8 }}>Please request SWIFT codes via the inquiry form for global sponsorship.</p>
                 </div>
 

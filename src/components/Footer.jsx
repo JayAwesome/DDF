@@ -23,6 +23,9 @@ const Footer = () => {
             <p style={{ fontStyle: 'italic', fontWeight: 600, color: 'var(--clr-gold)', marginBottom: '1rem' }}>
               Dumelo… Greater Heights for Our Tomorrow
             </p>
+            <p style={{ opacity: 0.9, fontSize: '0.95rem', lineHeight: 1.7, marginBottom: '1rem' }}>
+              Committed to transparency, impact, and service.
+            </p>
             <p style={{ opacity: 0.8, fontSize: '0.95rem', lineHeight: 1.7 }}>
               A credible, structured NGO mapping out pathways to international standards through workforce development and humanitarian excellence.
             </p>
@@ -32,11 +35,9 @@ const Footer = () => {
           <div className="footer-col">
             <h3 style={{ color: 'white', fontSize: '1.2rem', marginBottom: '1.5rem' }}>Quick Links</h3>
             <ul style={{ display: 'flex', flexDirection: 'column', gap: '0.8rem' }}>
-              <li><Link to="/about" style={{ color: '#d1e0ff', fontSize: '0.95rem' }}>About Our Mission</Link></li>
-              <li><Link to="/programs" style={{ color: '#d1e0ff', fontSize: '0.95rem' }}>Core Programs</Link></li>
-              <li><Link to="/leadership" style={{ color: '#d1e0ff', fontSize: '0.95rem' }}>Leadership Team</Link></li>
-              <li><Link to="/gallery" style={{ color: '#d1e0ff', fontSize: '0.95rem' }}>Impact Gallery</Link></li>
-              <li><Link to="/get-involved" style={{ color: '#d1e0ff', fontSize: '0.95rem' }}>Get Involved</Link></li>
+              <li><Link to="/about" style={{ color: '#d1e0ff', fontSize: '0.95rem' }}>About</Link></li>
+              <li><Link to="/programs" style={{ color: '#d1e0ff', fontSize: '0.95rem' }}>Programs</Link></li>
+              <li><Link to="/contact" style={{ color: '#d1e0ff', fontSize: '0.95rem' }}>Contact</Link></li>
             </ul>
           </div>
           
@@ -47,8 +48,7 @@ const Footer = () => {
               <li style={{ display: 'flex', gap: '0.75rem', alignItems: 'flex-start' }}>
                 <FiMapPin style={{ color: 'var(--clr-gold)', marginTop: '0.2rem', flexShrink: 0 }} />
                 <span style={{ fontSize: '0.95rem', opacity: 0.9 }}>
-                  Plot 31, Atta A. A. Street, Kado Estate,<br />
-                  Abuja, Nigeria
+                  Plot 31, Atta A. A. Street, Kado Estate, Abuja
                 </span>
               </li>
               <li style={{ display: 'flex', gap: '0.75rem', alignItems: 'center' }}>
@@ -75,6 +75,7 @@ const Footer = () => {
                 <a 
                   key={i} 
                   href={social.link} 
+                  aria-label="Social media link"
                   style={{ 
                     width: '40px', 
                     height: '40px', 

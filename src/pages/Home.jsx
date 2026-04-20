@@ -11,12 +11,12 @@ const Home = () => {
         className="hero" 
         style={{
           position: 'relative',
-          backgroundImage: 'linear-gradient(rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0.6)), url("/assets/humanitarian-support-4.jpeg")',
+          backgroundImage: 'linear-gradient(rgba(2, 6, 23, 0.6), rgba(2, 6, 23, 0.45)), url("/assets/humanitarian-support-4.jpeg")',
           backgroundSize: 'cover',
           backgroundPosition: 'center',
           backgroundAttachment: 'fixed',
           color: 'white',
-          padding: 'clamp(8rem, 15vw, 12rem) 0 clamp(6rem, 10vw, 8rem)'
+          padding: 'clamp(10rem, 18vw, 14rem) 0 clamp(7rem, 12vw, 10rem)'
         }}
       >
         <div className="container" style={{ position: 'relative', zIndex: 2 }}>
@@ -47,18 +47,18 @@ const Home = () => {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.2 }}
               className="hero-title"
-              style={{ color: 'white' }}
+              style={{ color: 'white', fontWeight: 800 }}
             >
-              Empowering Communities. <br/><span style={{ color: 'var(--clr-gold)' }}>Transforming Lives.</span>
+              Empowering Communities. <span style={{ color: 'var(--clr-gold)' }}>Transforming Lives.</span>
             </motion.h1>
             <motion.p 
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ duration: 0.8, delay: 0.4 }}
               className="subtitle-text"
-              style={{ maxWidth: '750px', marginBottom: '3rem', opacity: 0.95 }}
+              style={{ maxWidth: '780px', marginBottom: '3rem', opacity: 0.92, color: 'rgba(255,255,255,0.88)' }}
             >
-              Dumelo Development Foundation supports women, youth, and vulnerable communities through empowerment, education, and humanitarian services across Nigeria.
+              We partner with women, youth, and vulnerable communities to deliver empowerment, education, and humanitarian services across Nigeria.
             </motion.p>
             <motion.div 
               initial={{ opacity: 0, y: 20 }}
@@ -102,11 +102,31 @@ const Home = () => {
       <section className="section">
         <div className="container flex-responsive-row">
           <div style={{ flex: '1 1 500px' }}>
-            <span style={{ color: 'var(--clr-gold)', fontWeight: 800, textTransform: 'uppercase', letterSpacing: '2px', fontSize: '0.9rem', display: 'block', marginBottom: '1rem' }}>Our Purpose</span>
+            <span className="eyebrow eyebrow--gold" style={{ display: 'block', marginBottom: '1rem' }}>Our Purpose</span>
             <h2 className="section-title">A Structured Approach to <br/><span className="text-gold">Humanitarian Impact</span></h2>
-            <p className="subtitle-text mb-5">
-              Dumelo Development Foundation is more than an NGO; we are a strategic partner for change. We map out pathways to international standards for governments and businesses through workforce development, brand durability, and impactful humanitarian services.
+            <p className="subtitle-text" style={{ marginBottom: '1.5rem' }}>
+              We show up where support is needed most—turning compassion into practical help that helps families stand stronger, sooner.
             </p>
+            <ul style={{ display: 'flex', flexDirection: 'column', gap: '1rem', marginBottom: '2.5rem' }}>
+              <li style={{ display: 'flex', gap: '0.9rem', alignItems: 'flex-start' }}>
+                <span aria-hidden="true" style={{ color: 'var(--clr-gold)', marginTop: '0.2rem', fontSize: '1.25rem', flexShrink: 0 }}><FiUsers /></span>
+                <span className="subtitle-text" style={{ margin: 0 }}>
+                  <strong>Who we serve:</strong> women, youth, and vulnerable communities across Nigeria.
+                </span>
+              </li>
+              <li style={{ display: 'flex', gap: '0.9rem', alignItems: 'flex-start' }}>
+                <span aria-hidden="true" style={{ color: 'var(--clr-gold)', marginTop: '0.2rem', fontSize: '1.25rem', flexShrink: 0 }}><FiHeart /></span>
+                <span className="subtitle-text" style={{ margin: 0 }}>
+                  <strong>What we do:</strong> empowerment programs, education support, and humanitarian services that meet real needs.
+                </span>
+              </li>
+              <li style={{ display: 'flex', gap: '0.9rem', alignItems: 'flex-start' }}>
+                <span aria-hidden="true" style={{ color: 'var(--clr-gold)', marginTop: '0.2rem', fontSize: '1.25rem', flexShrink: 0 }}><FiAward /></span>
+                <span className="subtitle-text" style={{ margin: 0 }}>
+                  <strong>Why it matters:</strong> because dignified support today creates stability, opportunity, and hope tomorrow.
+                </span>
+              </li>
+            </ul>
             <Link to="/about" className="btn btn-outline hover-lift">Learn Our Story</Link>
           </div>
           <div style={{ flex: '1 1 400px', position: 'relative' }}>
@@ -132,12 +152,13 @@ const Home = () => {
       </section>
 
       {/* Impact Numbers Section */}
-      <section className="section section-bg-light">
+      <section className="section section-bg-blue">
         <div className="container">
           <div className="text-center mb-5">
-            <h2 className="section-title">Our Global Impact</h2>
-            <p className="subtitle-text" style={{ maxWidth: '800px', margin: '0 auto' }}>
-              Credible data reflecting our commitment to transforming lives across borders through strategic humanitarian excellence.
+            <span className="eyebrow eyebrow--on-dark" style={{ display: 'block', marginBottom: '1rem' }}>Trusted Results</span>
+            <h2 className="section-title">Our Impact in Numbers</h2>
+            <p className="subtitle-text" style={{ maxWidth: '820px', margin: '0 auto', color: 'rgba(255,255,255,0.85)' }}>
+              Clear metrics reflecting our commitment to empowering communities and delivering lasting, measurable change.
             </p>
           </div>
           
@@ -155,11 +176,39 @@ const Home = () => {
                 transition={{ duration: 0.6, delay: idx * 0.1 }}
                 viewport={{ once: true }}
                 className="hover-lift"
-                style={{ background: 'var(--clr-surface)', padding: '3.5rem 2rem', textAlign: 'center', borderRadius: '24px', border: '1px solid var(--clr-bg-alt)', boxShadow: 'var(--shadow-md)' }}
+                style={{
+                  background: 'rgba(255,255,255,0.98)',
+                  padding: '3.25rem 2.25rem',
+                  textAlign: 'center',
+                  borderRadius: '24px',
+                  border: '1px solid rgba(255,255,255,0.18)',
+                  boxShadow: 'var(--shadow-lg)'
+                }}
               >
-                <div style={{ fontSize: '3rem', color: 'var(--clr-gold)', marginBottom: '1.5rem' }}>{stat.icon}</div>
-                <div style={{ fontSize: '3.5rem', fontWeight: 800, color: 'var(--clr-blue)', marginBottom: '1rem', letterSpacing: '-2px', lineHeight: 1 }}>{stat.number}</div>
-                <div style={{ fontSize: '1.1rem', color: 'var(--clr-text-main)', fontWeight: 700, textTransform: 'uppercase', letterSpacing: '1px', lineHeight: 1.4 }}>{stat.label}</div>
+                <div
+                  aria-hidden="true"
+                  style={{
+                    width: '64px',
+                    height: '64px',
+                    borderRadius: '18px',
+                    margin: '0 auto 1.25rem',
+                    display: 'flex',
+                    alignItems: 'center',
+                    justifyContent: 'center',
+                    background: 'color-mix(in oklab, var(--clr-gold) 22%, transparent)',
+                    color: 'var(--clr-gold)',
+                    fontSize: '2rem',
+                    boxShadow: 'var(--shadow-sm)'
+                  }}
+                >
+                  {stat.icon}
+                </div>
+                <div style={{ fontSize: 'clamp(3.25rem, 5vw, 4.25rem)', fontWeight: 900, color: 'var(--clr-blue)', marginBottom: '0.75rem', letterSpacing: '-2px', lineHeight: 1, fontVariantNumeric: 'tabular-nums' }}>
+                  {stat.number}
+                </div>
+                <div style={{ fontSize: '1.05rem', color: 'var(--clr-text-main)', fontWeight: 800, textTransform: 'uppercase', letterSpacing: '1.2px', lineHeight: 1.35 }}>
+                  {stat.label}
+                </div>
               </motion.div>
             ))}
           </div>
@@ -170,7 +219,7 @@ const Home = () => {
       <section className="section">
          <div className="container">
             <div className="text-center mb-5">
-               <span style={{ color: 'var(--clr-blue)', fontWeight: 800, fontSize: '0.9rem', textTransform: 'uppercase', letterSpacing: '2px', display: 'block', marginBottom: '1rem' }}>Strategic Areas</span>
+               <span className="eyebrow eyebrow--blue" style={{ display: 'block', marginBottom: '1rem' }}>Strategic Areas</span>
                <h2 className="section-title">Global Program Pillars</h2>
                <p className="subtitle-text text-muted mb-4">Focused intervention areas designed for maximum community and economic growth.</p>
             </div>
@@ -184,24 +233,18 @@ const Home = () => {
                ].map((prog, idx) => (
                  <motion.div 
                    key={idx}
-                   className="hover-lift"
-                   style={{ 
-                     background: 'var(--clr-surface)', 
-                     padding: '2.5rem', 
-                     borderRadius: '24px', 
-                     boxShadow: 'var(--shadow-md)',
-                     display: 'flex',
-                     flexDirection: 'column',
-                     justifyContent: 'space-between',
-                     border: '1px solid var(--clr-bg-alt)'
-                   }}
+                   className="program-card"
+                   initial={{ opacity: 0, y: 14 }}
+                   whileInView={{ opacity: 1, y: 0 }}
+                   transition={{ duration: 0.5, delay: idx * 0.05 }}
+                   viewport={{ once: true }}
                  >
                    <div>
-                      <div style={{ width: '60px', height: '60px', background: 'var(--clr-bg-light)', borderRadius: '16px', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: '1.75rem', color: 'var(--clr-blue)', marginBottom: '1.5rem' }}>{prog.icon}</div>
+                      <div className="program-card__icon" aria-hidden="true">{prog.icon}</div>
                       <h3 className="card-title">{prog.title}</h3>
-                      <p style={{ color: 'var(--clr-text-muted)', marginBottom: '2rem' }}>{prog.desc}</p>
+                      <p className="line-clamp-2" style={{ color: 'var(--clr-text-muted)', margin: 0 }}>{prog.desc}</p>
                    </div>
-                   <Link to="/programs" style={{ color: 'var(--clr-gold)', fontWeight: 800, display: 'flex', alignItems: 'center', gap: '0.75rem', fontSize: '1.05rem' }}>
+                   <Link to="/programs" className="program-card__link">
                       Learn More &rarr;
                    </Link>
                  </motion.div>
@@ -213,26 +256,35 @@ const Home = () => {
       {/* Founder Spotlight (Leadership) */}
       <section className="section section-bg-light">
         <div className="container">
-          <div className="glass-panel" style={{ padding: 'clamp(2rem, 5vw, 4rem)', borderRadius: '40px', background: 'var(--clr-surface)' }}>
-            <div className="flex-responsive-row" style={{ alignItems: 'center', gap: '4rem' }}>
-              <div style={{ flex: '1 1 400px' }}>
-                <div style={{ borderRadius: '24px', overflow: 'hidden', boxShadow: 'var(--shadow-lg)', border: '8px solid white' }}>
-                  <img src="/assets/founder-image.jpeg" alt="Amb. Dr. Loretta Emetam Enwezor" style={{ width: '100%', height: 'auto', backgroundColor: 'var(--clr-bg-alt)', minHeight: '450px', objectFit: 'cover', display: 'block' }} />
+          <div
+            className="glass-panel"
+            style={{
+              padding: 'clamp(2rem, 5vw, 4.5rem)',
+              borderRadius: '40px',
+              background: 'linear-gradient(180deg, rgba(255,255,255,0.95) 0%, rgba(255,255,255,0.75) 100%)',
+              border: '1px solid rgba(0,0,0,0.04)',
+              boxShadow: 'var(--shadow-lg)'
+            }}
+          >
+            <div className="flex-responsive-row" style={{ alignItems: 'center', gap: '4.5rem' }}>
+              <div style={{ flex: '1.1 1 460px' }}>
+                <div style={{ borderRadius: '28px', overflow: 'hidden', boxShadow: 'var(--shadow-lg)', border: '10px solid rgba(255,255,255,0.9)' }}>
+                  <img src="/assets/founder-image.jpeg" alt="Amb. Dr. Loretta Emetam Enwezor" style={{ width: '100%', height: 'auto', backgroundColor: 'var(--clr-bg-alt)', minHeight: '500px', objectFit: 'cover', display: 'block' }} />
                 </div>
               </div>
-              <div style={{ flex: '1 2 500px', textAlign: 'left' }}>
-                <span style={{ color: 'var(--clr-gold)', fontWeight: 800, textTransform: 'uppercase', letterSpacing: '2px', fontSize: '0.9rem', display: 'block', marginBottom: '1rem' }}>Our Leadership</span>
+              <div style={{ flex: '1 1 520px', textAlign: 'left' }}>
+                <span className="eyebrow eyebrow--gold" style={{ display: 'block', marginBottom: '1rem' }}>Our Leadership</span>
                 <h2 style={{ fontSize: 'clamp(2.5rem, 5vw, 3.5rem)', color: 'var(--clr-blue)' }}>Amb. Dr. Loretta Emetam Enwezor</h2>
                 <h3 className="card-title" style={{ fontSize: '1.5rem', color: 'var(--clr-gold)', marginBottom: '2rem' }}>President & Founder</h3>
                 
-                <p className="subtitle-text" style={{ marginBottom: '2.5rem', maxWidth: '600px' }}>
-                  A visionary leader and global diplomat dedicated to uplifting the vulnerable. With decades of experience in humanitarian service, she drives the foundation's mission to create sustainable pathways for growth and empowerment across Nigeria and beyond.
+                <p className="subtitle-text" style={{ marginBottom: '1.75rem', maxWidth: '620px' }}>
+                  A trusted humanitarian leader committed to building opportunity, dignity, and lasting support for vulnerable communities.
                 </p>
                 
-                <div style={{ background: 'var(--clr-bg-light)', padding: '2.5rem', borderRadius: '24px', borderLeft: '6px solid var(--clr-gold)', position: 'relative' }}>
+                <div style={{ background: 'color-mix(in oklab, var(--clr-gold) 10%, var(--clr-bg-light))', padding: '2.25rem', borderRadius: '24px', borderLeft: '6px solid var(--clr-gold)', position: 'relative' }}>
                   <span style={{ position: 'absolute', top: '10px', left: '20px', fontSize: '4rem', color: 'var(--clr-gold)', opacity: 0.2, fontFamily: 'serif' }}>&ldquo;</span>
-                  <p style={{ color: 'var(--clr-blue)', fontSize: 'clamp(1.2rem, 2vw, 1.4rem)', fontWeight: 600, fontStyle: 'italic', margin: 0, lineHeight: 1.4, position: 'relative', zIndex: 1 }}>
-                    Philanthropy is not about money, but about compassion and action.
+                  <p style={{ color: 'var(--clr-blue)', fontSize: 'clamp(1.15rem, 2vw, 1.35rem)', fontWeight: 650, fontStyle: 'italic', margin: 0, lineHeight: 1.45, position: 'relative', zIndex: 1 }}>
+                    “Philanthropy is not about money, but about compassion and action.”
                   </p>
                 </div>
                 
@@ -248,15 +300,24 @@ const Home = () => {
       {/* Call to Action Section */}
       <section className="section">
          <div className="container">
-            <div className="premium-gradient-bg" style={{ borderRadius: '32px', padding: 'clamp(4rem, 8vw, 6rem) 2rem', textAlign: 'center', boxShadow: 'var(--shadow-lg)' }}>
+            <div
+              className="premium-gradient-bg"
+              style={{
+                borderRadius: '32px',
+                padding: 'clamp(4rem, 8vw, 6rem) 2rem',
+                textAlign: 'center',
+                boxShadow: 'var(--shadow-lg)',
+                border: '1px solid rgba(255,255,255,0.08)'
+              }}
+            >
                <div style={{ position: 'relative', zIndex: 2 }}>
-                  <h2 className="section-title text-white">Ready to Create Impact?</h2>
-                  <p className="subtitle-text" style={{ maxWidth: '700px', margin: '0 auto 3rem', opacity: 0.9, color: 'white' }}>
-                    Join a credible, structured organization that transforms humanitarian passion into sustainable global excellence.
+                  <h2 className="section-title text-white">Join Us in Transforming Lives</h2>
+                  <p className="subtitle-text" style={{ maxWidth: '700px', margin: '0 auto 3rem', opacity: 0.9, color: 'rgba(255,255,255,0.88)' }}>
+                    Partner with Dumelo Development Foundation to create lasting impact in communities.
                   </p>
                   <div className="flex-responsive-row" style={{ justifyContent: 'center', gap: '1.5rem' }}>
-                     <Link to="/contact" className="btn btn-gold hover-lift">Partner With Us</Link>
-                     <Link to="/get-involved" className="btn btn-outline hover-lift" style={{ borderColor: 'white', color: 'white' }}>Get Involved</Link>
+                     <Link to="/get-involved" className="btn btn-gold hover-lift">Partner With Us</Link>
+                     <Link to="/contact" className="btn btn-outline hover-lift" style={{ borderColor: 'white', color: 'white' }}>Contact Us</Link>
                   </div>
                </div>
             </div>

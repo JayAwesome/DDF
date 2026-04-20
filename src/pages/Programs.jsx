@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { FiArrowRight, FiCheckCircle } from 'react-icons/fi';
 
@@ -56,10 +57,10 @@ const Programs = () => {
       {/* Page Header */}
       <header className="page-header">
         <div className="container">
-          <span style={{ color: 'var(--clr-gold)', textTransform: 'uppercase', letterSpacing: '2px', fontWeight: 800, fontSize: '0.9rem', display: 'block', marginBottom: '1rem' }}>Our Initiatives</span>
+          <span className="eyebrow eyebrow--gold" style={{ display: 'block', marginBottom: '1rem' }}>Our Initiatives</span>
           <h1 className="hero-title">Key Program Areas</h1>
           <p className="subtitle-text" style={{ maxWidth: '750px', margin: '0 auto', opacity: 0.9 }}>
-            Explore the core strategic pillars where we channel our resources to effect meaningful, structured, and sustainable global change.
+            Explore the focused program areas where we deliver practical support and long-term empowerment.
           </p>
         </div>
       </header>
@@ -100,13 +101,16 @@ const Programs = () => {
                   <h2 className="section-title" style={{ marginBottom: '2.5rem' }}>{prog.title}</h2>
                   
                   <ul style={{ padding: 0, display: 'flex', flexDirection: 'column', gap: '1.5rem' }}>
-                    {prog.list.map((item, idxx) => (
+                    {prog.list.slice(0, 2).map((item, idxx) => (
                       <li key={idxx} style={{ display: 'flex', alignItems: 'flex-start', gap: '1.25rem' }}>
                         <FiCheckCircle style={{ color: 'var(--clr-gold)', fontSize: '1.75rem', flexShrink: 0, marginTop: '0.2rem' }} />
                         <span className="subtitle-text" style={{ color: 'var(--clr-text-main)', fontSize: '1.15rem' }}>{item}</span>
                       </li>
                     ))}
                   </ul>
+                  <p className="subtitle-text text-muted" style={{ marginTop: '1.5rem', marginBottom: 0, maxWidth: '680px' }}>
+                    Want deeper context and outcomes? Explore our <Link to="/impact">Impact</Link> and <Link to="/gallery">Gallery</Link>.
+                  </p>
                   
                   <div style={{ marginTop: '3.5rem' }}>
                     <Link to="/contact" className="btn btn-primary hover-lift" style={{ display: 'flex', alignItems: 'center', gap: '0.75rem', width: 'fit-content' }}>
@@ -120,41 +124,19 @@ const Programs = () => {
         </div>
       </section>
       
-      {/* Membership Benefits Integration */}
       <section className="section section-bg-light">
-          <div className="container">
-            <div className="text-center mb-5">
-              <span style={{ color: 'var(--clr-blue)', fontWeight: 800, fontSize: '0.9rem', textTransform: 'uppercase', letterSpacing: '2px', display: 'block', marginBottom: '1rem' }}>Ecosystem Engagement</span>
-              <h2 className="section-title">Membership & Benefits</h2>
-              <p className="subtitle-text text-muted" style={{ maxWidth: '800px', margin: '0 auto' }}>
-                Join our growing ecosystem to unlock a myriad of opportunities designed for institutional and individual growth.
-              </p>
-            </div>
-            
-            <div className="grid-cols-cards">
-                {[
-                  { title: 'Cooperative Access', desc: 'Secure access to cooperative loans and financial scaling opportunities.' },
-                  { title: 'Skills Development', desc: 'Premium vocational training and modern skills acquisition schemes.' },
-                  { title: 'Enterprise Support', desc: 'Targeted support for industrial, agricultural, and business ventures.' },
-                  { title: 'Direct Aid', desc: 'Prioritized access to financial relief, medical support, and grants.' },
-                  { title: 'Empowerment Schemes', desc: 'Participation in national-scale social welfare and development projects.' },
-                  { title: 'Consultancy Pool', desc: 'Expert consultancy in housing, investment, and strategic growth.' }
-                ].map((benefit, i) => (
-                  <motion.div 
-                    key={i} 
-                    className="hover-lift glass-panel"
-                    style={{ 
-                      padding: '3rem', 
-                      background: 'var(--clr-surface)',
-                      borderRadius: '24px'
-                    }}
-                  >
-                    <h4 className="card-title" style={{ fontSize: '1.35rem' }}>{benefit.title}</h4>
-                    <p style={{ color: 'var(--clr-text-muted)', margin: 0, lineHeight: 1.7, fontSize: '1.05rem' }}>{benefit.desc}</p>
-                  </motion.div>
-                ))}
-             </div>
+        <div className="container">
+          <div className="text-center mb-5">
+            <h2 className="section-title">Partner with us</h2>
+            <p className="subtitle-text text-muted" style={{ maxWidth: '820px', margin: '0 auto' }}>
+              If you’re an institution, donor, or volunteer, we’ll align you to a program area where your support creates clear outcomes.
+            </p>
           </div>
+          <div style={{ display: 'flex', justifyContent: 'center', gap: '1rem', flexWrap: 'wrap' }}>
+            <Link to="/get-involved" className="btn btn-gold hover-lift">Get Involved</Link>
+            <Link to="/contact" className="btn btn-outline hover-lift">Contact Us</Link>
+          </div>
+        </div>
       </section>
     </div>
   );
